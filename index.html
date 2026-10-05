@@ -12,15 +12,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
 </head>
-
 
 <body>
 
-<!-- ================= MUSIC ================= -->
+<!-- MUSIC -->
 
 <button id="musicBtn" class="music-btn">♫</button>
 
@@ -29,64 +26,177 @@
 </audio>
 
 
-<!-- ================= ENVELOPE ================= -->
+<!-- =========================================
+     CINEMATIC OPENING
+========================================= -->
 
-<section id="envelopeScreen" class="envelope-screen">
+<section id="opening" class="opening">
 
-    <div class="envelope-wrapper">
+    <div class="opening-glow"></div>
 
-        <p class="envelope-top">
-            A LITTLE SOMETHING FOR YOU
-        </p>
+    <p class="opening-title">
+        MINA & MADONNA
+    </p>
 
-        <div class="envelope" id="envelope">
+    <p class="opening-subtitle">
+        A little story before the big day
+    </p>
 
-            <div class="envelope-back"></div>
 
-            <div class="envelope-flap"></div>
+    <div
+        id="phone"
+        class="phone"
+        role="button"
+        tabindex="0"
+        aria-label="Open invitation">
 
-            <div class="letter">
+        <div class="phone-frame">
 
-                <p class="letter-small">
-                    YOU'RE INVITED
-                </p>
+            <div class="phone-screen">
 
-                <h1>M & M</h1>
 
-                <div class="tiny-ornament">
-                    ❦
+                <!-- SCREEN 1 -->
+
+                <div
+                    id="screenSeal"
+                    class="reveal-screen active">
+
+                    <div class="paper-texture"></div>
+
+                    <div class="seal-wrap">
+
+                        <div class="seal">
+
+                            <span>M</span>
+
+                        </div>
+
+                    </div>
+
+                    <p class="tap">
+                        TAP TO BEGIN
+                    </p>
+
                 </div>
 
-                <p>
-                    22 · 11 · 2026
-                </p>
 
-            </div>
+                <!-- SCREEN 2 -->
 
-            <div class="envelope-front"></div>
+                <div
+                    id="screenPhoto"
+                    class="reveal-screen">
 
-            <div class="wax-seal">
-                M
+                    <img
+                        src="childhood.jpg"
+                        alt="Mina and Madonna as children">
+
+                    <div class="photo-overlay"></div>
+
+                    <p class="photo-caption">
+                        Before we knew...
+                    </p>
+
+                </div>
+
+
+                <!-- SCREEN 3 -->
+
+                <div
+                    id="screenDate"
+                    class="reveal-screen">
+
+                    <div class="date-reveal">
+
+                        <span>22</span>
+
+                        <i>·</i>
+
+                        <span>11</span>
+
+                        <i>·</i>
+
+                        <span>26</span>
+
+                    </div>
+
+                    <p>
+                        OUR DAY
+                    </p>
+
+                </div>
+
+
+                <!-- SCREEN 4 -->
+
+                <div
+                    id="screenMonogram"
+                    class="reveal-screen">
+
+                    <div class="ornate-frame">
+
+                        <div class="monogram">
+                            M
+                            <small>&</small>
+                            M
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SCREEN 5 -->
+
+                <div
+                    id="screenFinal"
+                    class="reveal-screen">
+
+                    <div class="final-reveal">
+
+                        <div class="mini-seal">
+                            M
+                        </div>
+
+                        <div class="mini-ornament">
+                            ❦
+                        </div>
+
+                        <p>
+                            We can't wait to
+                            celebrate with you.
+                        </p>
+
+                        <strong>
+                            22 · 11 · 2026
+                        </strong>
+
+                    </div>
+
+                </div>
+
             </div>
 
         </div>
 
-        <p class="tap-text">
-            TAP THE ENVELOPE
-        </p>
-
     </div>
+
+
+    <p class="opening-bottom">
+        OUR STORY IS JUST BEGINNING
+    </p>
 
 </section>
 
 
 
-<!-- ================= INVITATION ================= -->
+<!-- =========================================
+     MAIN INVITATION
+========================================= -->
 
 <main id="invitation" class="hidden">
 
 
-    <!-- ================= HERO ================= -->
+    <!-- HERO -->
 
     <section class="hero section">
 
@@ -110,8 +220,9 @@
                 22 · 11 · 2026
             </p>
 
-            <p class="scroll-text">
-                OUR STORY<br>
+            <p class="scroll-hint">
+                SCROLL TO DISCOVER
+                <br>
                 ↓
             </p>
 
@@ -121,7 +232,9 @@
 
 
 
-    <!-- ================= OUR STORY ================= -->
+    <!-- =========================================
+         OUR STORY
+    ========================================= -->
 
     <section class="story section">
 
@@ -130,7 +243,7 @@
         </p>
 
         <h2>
-            It started long before we knew...
+            Before forever...
         </h2>
 
         <p class="intro-text">
@@ -144,21 +257,15 @@
 
             <!-- CHILDHOOD -->
 
-            <div class="story-card">
+            <article class="story-card">
 
-                <div class="story-photo photo-placeholder">
+                <div class="story-photo">
 
-                    <div>
+                    <img
+                        src="childhood.jpg"
+                        alt="Mina and Madonna as children">
 
-                        <span>
-                            CHILDHOOD
-                        </span>
-
-                        <small>
-                            Our first chapter
-                        </small>
-
-                    </div>
+                    <div class="photo-frame"></div>
 
                 </div>
 
@@ -166,31 +273,33 @@
                     Once upon a time...
                 </p>
 
-                <p class="story-caption-small">
+                <p class="story-small">
                     A long time before "us"
                 </p>
 
-            </div>
+            </article>
 
 
 
             <!-- PROPOSAL -->
 
-            <div class="story-card">
+            <article class="story-card">
 
-                <div class="story-photo photo-placeholder">
+                <div class="story-photo empty-photo">
 
-                    <div>
+                    <div class="photo-placeholder">
 
                         <span>
                             OUR PROPOSAL
                         </span>
 
                         <small>
-                            Photo coming soon
+                            PHOTO COMING SOON
                         </small>
 
                     </div>
+
+                    <div class="photo-frame"></div>
 
                 </div>
 
@@ -198,31 +307,33 @@
                     And then came the yes.
                 </p>
 
-                <p class="story-caption-small">
+                <p class="story-small">
                     The beginning of forever
                 </p>
 
-            </div>
+            </article>
 
 
 
             <!-- ENGAGEMENT -->
 
-            <div class="story-card">
+            <article class="story-card">
 
-                <div class="story-photo photo-placeholder">
+                <div class="story-photo empty-photo">
 
-                    <div>
+                    <div class="photo-placeholder">
 
                         <span>
-                            US
+                            OUR MEMORIES
                         </span>
 
                         <small>
-                            Photo coming soon
+                            PHOTO COMING SOON
                         </small>
 
                     </div>
+
+                    <div class="photo-frame"></div>
 
                 </div>
 
@@ -230,31 +341,33 @@
                     Growing together.
                 </p>
 
-                <p class="story-caption-small">
+                <p class="story-small">
                     One memory at a time
                 </p>
 
-            </div>
+            </article>
 
 
 
-            <!-- FINAL PHOTO -->
+            <!-- TODAY -->
 
-            <div class="story-card">
+            <article class="story-card">
 
-                <div class="story-photo photo-placeholder">
+                <div class="story-photo empty-photo">
 
-                    <div>
+                    <div class="photo-placeholder">
 
                         <span>
                             TODAY
                         </span>
 
                         <small>
-                            Photo coming soon
+                            PHOTO COMING SOON
                         </small>
 
                     </div>
+
+                    <div class="photo-frame"></div>
 
                 </div>
 
@@ -262,7 +375,11 @@
                     And here we are.
                 </p>
 
-            </div>
+                <p class="story-small">
+                    Almost forever
+                </p>
+
+            </article>
 
         </div>
 
@@ -270,7 +387,9 @@
 
 
 
-    <!-- ================= DETAILS ================= -->
+    <!-- =========================================
+         WEDDING DETAILS
+    ========================================= -->
 
     <section class="details section">
 
@@ -299,7 +418,8 @@
                 </h3>
 
                 <p>
-                    Sunday<br>
+                    Sunday
+                    <br>
                     22 November 2026
                 </p>
 
@@ -330,7 +450,8 @@
                 </h3>
 
                 <p>
-                    St. Mark Coptic Orthodox Church<br>
+                    St. Mark Coptic Orthodox Church
+                    <br>
                     Cleopatra, Heliopolis
                 </p>
 
@@ -340,17 +461,21 @@
 
 
         <a
+            class="vintage-button"
             href="https://maps.app.goo.gl/Jndjn72K9i4ZEqaU7?g_st=ic"
-            target="_blank"
-            class="vintage-button">
+            target="_blank">
+
             VIEW LOCATION
+
         </a>
 
     </section>
 
 
 
-    <!-- ================= COUNTDOWN ================= -->
+    <!-- =========================================
+         COUNTDOWN
+    ========================================= -->
 
     <section class="countdown-section section">
 
@@ -362,58 +487,27 @@
             Our Day
         </h2>
 
+
         <div class="countdown">
 
-
             <div class="count-item">
-
-                <strong id="days">
-                    00
-                </strong>
-
-                <span>
-                    DAYS
-                </span>
-
+                <strong id="days">00</strong>
+                <span>DAYS</span>
             </div>
 
-
             <div class="count-item">
-
-                <strong id="hours">
-                    00
-                </strong>
-
-                <span>
-                    HOURS
-                </span>
-
+                <strong id="hours">00</strong>
+                <span>HOURS</span>
             </div>
 
-
             <div class="count-item">
-
-                <strong id="minutes">
-                    00
-                </strong>
-
-                <span>
-                    MINUTES
-                </span>
-
+                <strong id="minutes">00</strong>
+                <span>MINUTES</span>
             </div>
 
-
             <div class="count-item">
-
-                <strong id="seconds">
-                    00
-                </strong>
-
-                <span>
-                    SECONDS
-                </span>
-
+                <strong id="seconds">00</strong>
+                <span>SECONDS</span>
             </div>
 
         </div>
@@ -422,7 +516,9 @@
 
 
 
-    <!-- ================= DRESS CODE ================= -->
+    <!-- =========================================
+         DRESS CODE
+    ========================================= -->
 
     <section class="dress section">
 
@@ -442,6 +538,7 @@
             Details coming soon...
         </p>
 
+
         <div class="color-palette">
 
             <span></span>
@@ -455,7 +552,9 @@
 
 
 
-    <!-- ================= RSVP ================= -->
+    <!-- =========================================
+         RSVP
+    ========================================= -->
 
     <section class="rsvp section">
 
@@ -472,29 +571,26 @@
         </div>
 
         <p class="rsvp-intro">
-            We would love to celebrate this special day with you.
-            Leave us your name and a little message.
+            We would love to celebrate this special
+            day with you. Leave us your name and
+            a little message.
         </p>
 
 
         <form id="rsvpForm">
 
-
             <label>
-
                 YOUR NAME
 
                 <input
-                    type="text"
                     id="guestName"
+                    type="text"
                     placeholder="Your name"
                     required>
-
             </label>
 
 
             <label>
-
                 NUMBER OF GUESTS
 
                 <select id="guestNumber" required>
@@ -529,13 +625,13 @@
 
 
             <label>
-
                 A MESSAGE FOR US
 
                 <textarea
                     id="guestMessage"
                     rows="5"
-                    placeholder="Write something for Mina & Madonna..."></textarea>
+                    placeholder="Write something for Mina & Madonna...">
+                </textarea>
 
             </label>
 
@@ -543,7 +639,9 @@
             <button
                 type="submit"
                 class="vintage-button">
+
                 SEND WITH LOVE
+
             </button>
 
         </form>
@@ -571,7 +669,9 @@
 
 
 
-    <!-- ================= FINAL ================= -->
+    <!-- =========================================
+         FINAL
+    ========================================= -->
 
     <section class="final section">
 
@@ -604,5 +704,4 @@
 <script src="script.js"></script>
 
 </body>
-
 </html>
