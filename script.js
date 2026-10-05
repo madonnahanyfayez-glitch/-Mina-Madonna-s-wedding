@@ -113,7 +113,7 @@ function startExperience() {
 
     setTimeout(() => {
 
-        showScreen(4);
+        showScreen(3);
 
     }, 11500);
 
