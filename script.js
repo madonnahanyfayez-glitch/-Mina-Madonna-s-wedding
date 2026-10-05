@@ -1,6 +1,6 @@
 /* =========================================
    MINA & MADONNA
-   CINEMATIC WEDDING INVITATION
+   VINTAGE CINEMATIC INVITATION
 ========================================= */
 
 
@@ -11,8 +11,20 @@
 const opening =
     document.getElementById("opening");
 
-const phone =
-    document.getElementById("phone");
+const envelope =
+    document.getElementById("envelope");
+
+const seal =
+    document.getElementById("seal");
+
+const envelopeStage =
+    document.getElementById("envelopeStage");
+
+const introText =
+    document.getElementById("introText");
+
+const reveal =
+    document.getElementById("reveal");
 
 const invitation =
     document.getElementById("invitation");
@@ -24,118 +36,111 @@ const musicBtn =
     document.getElementById("musicBtn");
 
 
-const screens = [
-    document.getElementById("screenSeal"),
-    document.getElementById("screenPhoto"),
-    document.getElementById("screenDate"),
-    document.getElementById("screenMonogram"),
-    document.getElementById("screenFinal")
+const revealScreens = [
+    document.querySelector(".reveal-photo"),
+    document.querySelector(".reveal-names"),
+    document.querySelector(".reveal-date"),
+    document.querySelector(".reveal-final")
 ];
 
 
 let started = false;
+
 let musicPlaying = false;
 
 
 /* =========================================
-   CINEMATIC OPENING
+   SHOW REVEAL
 ========================================= */
 
-function showScreen(index) {
+function showReveal(index) {
 
-    screens.forEach((screen, i) => {
+    revealScreens.forEach(
+        (screen, i) => {
 
-        if (!screen) return;
+            if (!screen) return;
 
-        screen.classList.toggle(
-            "active",
-            i === index
-        );
+            screen.classList.toggle(
+                "show",
+                i === index
+            );
 
-    });
+        }
+    );
 
 }
 
 
 /* =========================================
-   START EXPERIENCE
+   OPEN INVITATION
 ========================================= */
 
-function startExperience() {
+function openInvitation() {
 
     if (started) return;
 
     started = true;
 
-    /*
-        STEP 1
-        Seal disappears
-    */
 
-    showScreen(0);
+    /* envelope opens */
 
+    envelope.classList.add("opened");
 
-    setTimeout(() => {
+    introText.classList.add("hide");
 
-        showScreen(1);
-
-    }, 1600);
+    envelopeStage.classList.add("hide");
 
 
-    /*
-        STEP 2
-        Childhood photo
-    */
+    /* reveal layer */
 
     setTimeout(() => {
 
-        showScreen(2);
+        reveal.classList.add("active");
 
-    }, 6500);
+    }, 1100);
 
 
-    /*
-        STEP 3
-        Date
-    */
+    /* childhood photo */
 
     setTimeout(() => {
 
-        showScreen(3);
+        showReveal(0);
 
-    }, 9000);
+    }, 1700);
 
 
-    /*
-        STEP 4
-        Monogram
-    */
+    /* names */
 
     setTimeout(() => {
 
-        showScreen(3);
+        showReveal(1);
 
-    }, 11500);
+    }, 5200);
 
 
-    /*
-        STEP 5
-        Final message
-    */
+    /* date */
 
     setTimeout(() => {
 
-        showScreen(4);
+        showReveal(2);
 
-    }, 14500);
+    }, 7800);
 
 
-    /*
-        Finish cinematic intro
-        and reveal invitation
-    */
+    /* final message */
 
     setTimeout(() => {
+
+        showReveal(3);
+
+    }, 10200);
+
+
+    /* move to main invitation */
+
+    setTimeout(() => {
+
+        reveal.classList.remove("active");
 
         opening.classList.add("finished");
 
@@ -148,24 +153,29 @@ function startExperience() {
             behavior: "smooth"
         });
 
-    }, 18500);
+    }, 13500);
 
 }
 
 
 /* =========================================
-   PHONE CLICK
+   CLICK
 ========================================= */
 
-phone.addEventListener(
+seal.addEventListener(
     "click",
-    startExperience
+    openInvitation
+);
+
+envelope.addEventListener(
+    "click",
+    openInvitation
 );
 
 
-/* Keyboard accessibility */
+/* keyboard */
 
-phone.addEventListener(
+envelope.addEventListener(
     "keydown",
     function(event) {
 
@@ -176,7 +186,7 @@ phone.addEventListener(
 
             event.preventDefault();
 
-            startExperience();
+            openInvitation();
 
         }
 
@@ -205,13 +215,17 @@ function updateCountdown() {
 
     if (difference <= 0) {
 
-        document.getElementById("days").innerText = "00";
+        document.getElementById("days").innerText =
+            "00";
 
-        document.getElementById("hours").innerText = "00";
+        document.getElementById("hours").innerText =
+            "00";
 
-        document.getElementById("minutes").innerText = "00";
+        document.getElementById("minutes").innerText =
+            "00";
 
-        document.getElementById("seconds").innerText = "00";
+        document.getElementById("seconds").innerText =
+            "00";
 
         return;
 
@@ -248,14 +262,11 @@ function updateCountdown() {
     document.getElementById("days").innerText =
         String(days).padStart(2, "0");
 
-
     document.getElementById("hours").innerText =
         String(hours).padStart(2, "0");
 
-
     document.getElementById("minutes").innerText =
         String(minutes).padStart(2, "0");
-
 
     document.getElementById("seconds").innerText =
         String(seconds).padStart(2, "0");
@@ -289,14 +300,16 @@ musicBtn.addEventListener(
 
                     musicPlaying = true;
 
-                    musicBtn.innerHTML = "❚❚";
+                    musicBtn.innerHTML =
+                        "❚❚";
 
                 })
                 .catch(() => {
 
                     musicPlaying = false;
 
-                    musicBtn.innerHTML = "♫";
+                    musicBtn.innerHTML =
+                        "♫";
 
                 });
 
@@ -306,7 +319,8 @@ musicBtn.addEventListener(
 
             musicPlaying = false;
 
-            musicBtn.innerHTML = "♫";
+            musicBtn.innerHTML =
+                "♫";
 
         }
 
@@ -338,7 +352,6 @@ if (rsvpForm) {
                 "hidden"
             );
 
-
             thankYou.classList.remove(
                 "hidden"
             );
@@ -356,7 +369,8 @@ if (rsvpForm) {
 
 
 /* =========================================
-   PREVENT SCROLL DURING INTRO
+   LOCK SCROLL DURING OPENING
 ========================================= */
 
-document.body.style.overflow = "hidden";
+document.body.style.overflow =
+    "hidden";
