@@ -1,28 +1,20 @@
 /* =========================================
    MINA & MADONNA
-   VINTAGE WEDDING INVITATION
+   CINEMATIC VINTAGE WEDDING
 ========================================= */
 
 :root {
-    --ivory: #f8f3e9;
-    --paper: #f2e7d5;
-    --cream: #fffaf1;
-
-    --taupe: #b9a38a;
-    --beige: #d5c2a8;
-
-    --brown: #5d4938;
-    --dark-brown: #382b21;
-
-    --gold: #9a7950;
-
-    --shadow: rgba(57, 42, 29, 0.18);
+    --espresso: #2d211b;
+    --coffee: #4a3529;
+    --mocha: #705644;
+    --taupe: #9b8068;
+    --cream: #eee3d2;
+    --paper: #f5ecdf;
+    --gold: #a98a61;
+    --soft-gold: #c2a77c;
+    --white: #fbf7ef;
+    --shadow: rgba(30, 20, 14, .28);
 }
-
-
-/* =========================================
-   RESET
-========================================= */
 
 * {
     box-sizing: border-box;
@@ -35,11 +27,10 @@ html {
 }
 
 body {
-    background: var(--ivory);
-    color: var(--brown);
-
+    margin: 0;
+    background: var(--espresso);
+    color: var(--coffee);
     font-family: "Cormorant Garamond", serif;
-
     overflow-x: hidden;
 }
 
@@ -50,378 +41,609 @@ select {
     font-family: inherit;
 }
 
-
-/* =========================================
-   GENERAL
-========================================= */
-
 .hidden {
     display: none !important;
 }
 
-.section {
-    min-height: 100vh;
 
-    padding: 100px 22px;
+/* =========================================
+   CINEMATIC OPENING
+========================================= */
+
+.opening {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+
+    min-height: 100svh;
 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
-    text-align: center;
-
-    position: relative;
-}
-
-.eyebrow {
-    font-size: 12px;
-
-    letter-spacing: 5px;
-
-    text-transform: uppercase;
-
-    color: var(--gold);
-
-    margin-bottom: 18px;
-}
-
-h1,
-h2,
-h3 {
-    font-weight: 500;
-}
-
-h2 {
-    font-size: clamp(42px, 10vw, 70px);
-
-    line-height: 1;
-
-    color: var(--dark-brown);
-}
-
-.ornament {
-    font-size: 30px;
-
-    color: var(--gold);
-
-    margin: 25px 0;
-}
-
-
-/* =========================================
-   ENVELOPE SCREEN
-========================================= */
-
-.envelope-screen {
-    position: fixed;
-
-    inset: 0;
-
-    z-index: 1000;
+    overflow: hidden;
 
     background:
         radial-gradient(
-            circle at center,
-            #fffaf1 0%,
-            #eee1cd 60%,
-            #d7c3a5 100%
+            circle at 50% 45%,
+            #66503f 0%,
+            #3e2d24 45%,
+            #211814 100%
         );
 
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
+    color: var(--paper);
 
     transition:
-        opacity 1s ease,
-        visibility 1s ease;
+        opacity 1.4s ease,
+        visibility 1.4s ease;
 }
 
-.envelope-screen.opened {
+.opening.finished {
     opacity: 0;
-
     visibility: hidden;
-
     pointer-events: none;
 }
 
 
-.envelope-wrapper {
-    width: 100%;
+/* subtle vintage light */
 
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-}
-
-
-/* Small text above envelope */
-
-.envelope-top {
-    font-size: 11px;
-
-    letter-spacing: 4px;
-
-    color: var(--brown);
-
-    margin-bottom: 30px;
-
-    opacity: .75;
-}
-
-
-/* =========================================
-   ENVELOPE
-========================================= */
-
-.envelope {
-    position: relative;
-
-    width: min(86vw, 390px);
-
-    aspect-ratio: 1.55 / 1;
-
-    cursor: pointer;
-
-    filter:
-        drop-shadow(
-            0 20px 25px rgba(50, 35, 23, .22)
-        );
-
-    transition:
-        transform .35s ease;
-}
-
-.envelope:hover {
-    transform: translateY(-5px);
-}
-
-.envelope:active {
-    transform: scale(.98);
-}
-
-
-/* Back */
-
-.envelope-back {
+.opening-glow {
     position: absolute;
 
-    inset: 0;
+    width: 75vw;
+    height: 75vw;
 
-    background: #a98b6c;
-
-    border-radius: 3px;
-}
-
-
-/* Letter */
-
-.letter {
-    position: absolute;
-
-    z-index: 2;
-
-    left: 8%;
-
-    bottom: 7%;
-
-    width: 84%;
-
-    height: 87%;
-
-    background:
-        linear-gradient(
-            135deg,
-            #fffaf0,
-            #f0e3cf
-        );
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-
-    justify-content: center;
-
-    color: var(--dark-brown);
-
-    box-shadow:
-        0 4px 12px rgba(50, 35, 23, .12);
-
-    transition:
-        transform 1.2s cubic-bezier(.2,.8,.2,1),
-        z-index .1s linear 1s;
-}
-
-.letter-small {
-    font-size: 9px;
-
-    letter-spacing: 4px;
-
-    margin-bottom: 10px;
-}
-
-.letter h1 {
-    font-family: "Great Vibes", cursive;
-
-    font-size: 52px;
-
-    font-weight: 400;
-}
-
-.letter p:last-child {
-    font-size: 12px;
-
-    letter-spacing: 3px;
-}
-
-.tiny-ornament {
-    color: var(--gold);
-
-    font-size: 23px;
-
-    margin: 7px 0;
-}
-
-
-/* Front */
-
-.envelope-front {
-    position: absolute;
-
-    z-index: 4;
-
-    inset: 0;
-
-    background: #b89b7b;
-
-    clip-path: polygon(
-        0 0,
-        50% 58%,
-        100% 0,
-        100% 100%,
-        0 100%
-    );
-}
-
-
-/* Flap */
-
-.envelope-flap {
-    position: absolute;
-
-    z-index: 5;
-
-    left: 0;
-    top: 0;
-
-    width: 100%;
-
-    height: 62%;
-
-    background: #c9ad8c;
-
-    clip-path: polygon(
-        0 0,
-        100% 0,
-        50% 100%
-    );
-
-    transform-origin: top center;
-
-    transition:
-        transform 1s cubic-bezier(.2,.8,.2,1);
-
-    backface-visibility: hidden;
-}
-
-
-/* Open animation */
-
-.envelope.open .envelope-flap {
-    transform: rotateX(180deg);
-
-    z-index: 1;
-}
-
-.envelope.open .letter {
-    transform: translateY(-78%);
-
-    z-index: 6;
-}
-
-
-/* Wax seal */
-
-.wax-seal {
-    position: absolute;
-
-    z-index: 7;
-
-    left: 50%;
-    top: 55%;
-
-    width: 60px;
-    height: 60px;
-
-    transform:
-        translate(-50%, -50%);
+    max-width: 650px;
+    max-height: 650px;
 
     border-radius: 50%;
 
     background:
         radial-gradient(
-            circle at 35% 30%,
-            #8e7357,
-            #5e4633
+            circle,
+            rgba(194,167,124,.18),
+            transparent 65%
         );
 
-    border:
-        2px solid rgba(255, 250, 240, .3);
+    filter: blur(8px);
 
-    color: #f8f1e5;
+    pointer-events: none;
+}
+
+
+/* =========================================
+   OPENING TEXT
+========================================= */
+
+.opening-title {
+    position: absolute;
+
+    top: 7vh;
+
+    font-size: 11px;
+
+    letter-spacing: 6px;
+
+    color: #dfceb5;
+
+    opacity: .85;
+}
+
+.opening-subtitle {
+    position: absolute;
+
+    top: calc(7vh + 25px);
+
+    font-size: 13px;
+
+    letter-spacing: 1px;
+
+    color: #bba58b;
+
+    opacity: .7;
+}
+
+
+/* =========================================
+   PHONE
+========================================= */
+
+.phone {
+    position: relative;
+
+    width: min(76vw, 340px);
+
+    height: min(76vh, 650px);
+
+    min-height: 510px;
+
+    max-height: 680px;
+
+    cursor: pointer;
+
+    outline: none;
+
+    animation:
+        phoneFloat 5s ease-in-out infinite;
+}
+
+@keyframes phoneFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-7px);
+    }
+}
+
+
+.phone-frame {
+    position: absolute;
+
+    inset: 0;
+
+    padding: 7px;
+
+    border-radius: 40px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #b79a70,
+            #4d382b 35%,
+            #1d1511 80%
+        );
+
+    box-shadow:
+        0 35px 70px rgba(0,0,0,.45),
+        inset 0 1px 2px rgba(255,255,255,.25);
+}
+
+
+.phone-screen {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    border-radius: 34px;
+
+    background: var(--paper);
+
+    box-shadow:
+        inset 0 0 30px rgba(50,35,20,.15);
+}
+
+
+/* small phone speaker */
+
+.phone-screen::before {
+    content: "";
+
+    position: absolute;
+
+    z-index: 100;
+
+    top: 10px;
+    left: 50%;
+
+    width: 70px;
+    height: 5px;
+
+    transform: translateX(-50%);
+
+    border-radius: 10px;
+
+    background: rgba(35,25,18,.6);
+}
+
+
+/* =========================================
+   REVEAL SCREENS
+========================================= */
+
+.reveal-screen {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform: scale(1.04);
+
+    transition:
+        opacity 1s ease,
+        transform 1.2s ease,
+        visibility 1s ease;
+}
+
+.reveal-screen.active {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: scale(1);
+}
+
+
+/* =========================================
+   SCREEN 1 — SEAL
+========================================= */
+
+#screenSeal {
+    background:
+        radial-gradient(
+            circle at center,
+            #f7eee1,
+            #ded0bc
+        );
+}
+
+.paper-texture {
+    position: absolute;
+
+    inset: 0;
+
+    opacity: .18;
+
+    background-image:
+        radial-gradient(
+            rgba(70,50,35,.4) .5px,
+            transparent .5px
+        );
+
+    background-size: 6px 6px;
+
+    pointer-events: none;
+}
+
+.seal-wrap {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.seal {
+    width: 105px;
+    height: 105px;
 
     display: flex;
 
     align-items: center;
     justify-content: center;
 
+    border-radius: 50%;
+
+    color: #eee0c9;
+
     font-family: "Great Vibes", cursive;
 
-    font-size: 30px;
+    font-size: 54px;
+
+    background:
+        radial-gradient(
+            circle at 35% 28%,
+            #a38a69,
+            #584232 75%
+        );
+
+    border:
+        3px solid rgba(255,248,234,.4);
 
     box-shadow:
-        0 5px 15px rgba(40, 30, 20, .25);
+        0 12px 25px rgba(60,40,25,.28),
+        inset 0 2px 4px rgba(255,255,255,.18);
 
-    transition:
-        opacity .5s ease,
-        transform .7s ease;
+    animation:
+        sealPulse 2.7s ease-in-out infinite;
 }
 
-.envelope.open .wax-seal {
-    opacity: 0;
+@keyframes sealPulse {
 
-    transform:
-        translate(-50%, -50%)
-        scale(.5)
-        rotate(-20deg);
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.045);
+    }
 }
 
+.tap {
+    margin-top: 45px;
 
-.tap-text {
-    margin-top: 35px;
-
-    font-size: 11px;
+    font-size: 9px;
 
     letter-spacing: 4px;
 
-    color: var(--brown);
+    color: var(--coffee);
 
     opacity: .7;
+}
+
+
+/* =========================================
+   SCREEN 2 — CHILDHOOD PHOTO
+========================================= */
+
+#screenPhoto {
+    background: #1f1713;
+}
+
+#screenPhoto img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    filter:
+        sepia(.18)
+        saturate(.8)
+        contrast(.96);
+
+    transform: scale(1.02);
+
+    animation:
+        photoReveal 5s ease forwards;
+}
+
+@keyframes photoReveal {
+
+    from {
+        transform: scale(1.08);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+.photo-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(30,20,14,.75),
+            transparent 50%
+        );
+}
+
+.photo-caption {
+    position: absolute;
+
+    bottom: 45px;
+
+    color: #f6ead8;
+
+    font-family: "Great Vibes", cursive;
+
+    font-size: 31px;
+
+    text-shadow:
+        0 2px 10px rgba(0,0,0,.35);
+}
+
+
+/* =========================================
+   SCREEN 3 — DATE
+========================================= */
+
+#screenDate {
+    background:
+        radial-gradient(
+            circle,
+            #f7eee1,
+            #d8c7b0
+        );
+}
+
+.date-reveal {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    color: var(--coffee);
+
+    font-size: 43px;
+
+    font-weight: 500;
+
+    letter-spacing: 3px;
+}
+
+.date-reveal i {
+    font-style: normal;
+
+    color: var(--gold);
+
+    font-size: 20px;
+}
+
+#screenDate p {
+    margin-top: 22px;
+
+    font-size: 9px;
+
+    letter-spacing: 5px;
+
+    color: var(--gold);
+}
+
+
+/* =========================================
+   SCREEN 4 — MONOGRAM
+========================================= */
+
+#screenMonogram {
+    background:
+        #eee3d2;
+}
+
+.ornate-frame {
+    width: 210px;
+    height: 270px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid rgba(169,138,97,.7);
+
+    position: relative;
+}
+
+.ornate-frame::before,
+.ornate-frame::after {
+    content: "❦";
+
+    position: absolute;
+
+    color: var(--gold);
+
+    font-size: 23px;
+}
+
+.ornate-frame::before {
+    top: -15px;
+}
+
+.ornate-frame::after {
+    bottom: -15px;
+}
+
+.monogram {
+    font-family: "Great Vibes", cursive;
+
+    font-size: 70px;
+
+    color: var(--coffee);
+
+    line-height: .75;
+}
+
+.monogram small {
+    display: block;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 17px;
+
+    letter-spacing: 3px;
+
+    color: var(--gold);
+}
+
+
+/* =========================================
+   SCREEN 5 — FINAL REVEAL
+========================================= */
+
+#screenFinal {
+    background:
+        linear-gradient(
+            145deg,
+            #f5ecdf,
+            #ded0bc
+        );
+}
+
+.final-reveal {
+    width: 80%;
+
+    text-align: center;
+
+    color: var(--coffee);
+}
+
+.mini-seal {
+    width: 45px;
+    height: 45px;
+
+    margin: 0 auto 25px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #624936;
+
+    color: #f5ecdf;
+
+    font-family: "Great Vibes", cursive;
+
+    font-size: 22px;
+}
+
+.mini-ornament {
+    color: var(--gold);
+
+    font-size: 25px;
+
+    margin-bottom: 18px;
+}
+
+.final-reveal p {
+    font-size: 18px;
+
+    line-height: 1.45;
+
+    margin-bottom: 22px;
+}
+
+.final-reveal strong {
+    font-size: 12px;
+
+    letter-spacing: 4px;
+
+    color: var(--gold);
+}
+
+
+/* =========================================
+   OPENING BOTTOM TEXT
+========================================= */
+
+.opening-bottom {
+    position: absolute;
+
+    bottom: 5vh;
+
+    font-size: 8px;
+
+    letter-spacing: 4px;
+
+    color: #bba58b;
+
+    opacity: .55;
 }
 
 
@@ -432,28 +654,85 @@ h2 {
 .music-btn {
     position: fixed;
 
-    right: 20px;
-    top: 20px;
-
     z-index: 900;
 
-    width: 45px;
-    height: 45px;
+    top: 20px;
+    right: 20px;
+
+    width: 44px;
+    height: 44px;
 
     border-radius: 50%;
 
-    border: 1px solid var(--gold);
+    border:
+        1px solid rgba(169,138,97,.7);
 
-    background: rgba(248, 243, 233, .9);
+    background:
+        rgba(245,236,223,.9);
 
-    color: var(--brown);
+    color: var(--coffee);
 
-    font-size: 21px;
+    font-size: 18px;
 
     cursor: pointer;
 
     box-shadow:
-        0 5px 15px var(--shadow);
+        0 6px 20px rgba(30,20,14,.2);
+}
+
+
+/* =========================================
+   MAIN INVITATION
+========================================= */
+
+.section {
+    min-height: 100svh;
+
+    padding: 100px 22px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    position: relative;
+}
+
+.eyebrow {
+    font-size: 10px;
+
+    letter-spacing: 5px;
+
+    color: var(--gold);
+
+    margin-bottom: 20px;
+}
+
+h1,
+h2,
+h3 {
+    font-weight: 500;
+}
+
+h2 {
+    color: var(--espresso);
+
+    font-size:
+        clamp(42px, 10vw, 70px);
+
+    line-height: 1;
+}
+
+.ornament {
+    margin: 25px 0;
+
+    color: var(--gold);
+
+    font-size: 28px;
 }
 
 
@@ -462,41 +741,35 @@ h2 {
 ========================================= */
 
 .hero {
-    background:
-        linear-gradient(
-            rgba(248, 243, 233, .86),
-            rgba(248, 243, 233, .96)
-        );
+    min-height: 100svh;
 
-    background-image:
+    background:
         radial-gradient(
-            circle at 20% 20%,
-            rgba(183, 154, 116, .14) 0,
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 80% 70%,
-            rgba(183, 154, 116, .12) 0,
-            transparent 30%
+            circle at center,
+            #f8f1e6,
+            #e3d4c0
         );
 }
 
 .hero-inner {
-    max-width: 600px;
+    max-width: 650px;
 }
 
 .hero h1 {
     font-family: "Great Vibes", cursive;
 
-    font-size: clamp(70px, 19vw, 125px);
+    font-size:
+        clamp(72px, 19vw, 125px);
 
     line-height: .8;
 
-    color: var(--dark-brown);
+    color: var(--espresso);
 }
 
 .hero h1 span {
     display: block;
+
+    margin: 22px 0;
 
     font-family: "Cormorant Garamond", serif;
 
@@ -504,27 +777,27 @@ h2 {
 
     font-style: italic;
 
-    margin: 20px 0;
+    color: var(--gold);
 }
 
 .date {
-    font-size: 17px;
+    font-size: 15px;
 
     letter-spacing: 7px;
 
     color: var(--gold);
 }
 
-.scroll-text {
+.scroll-hint {
     margin-top: 100px;
 
-    font-size: 10px;
-
-    letter-spacing: 4px;
+    font-size: 9px;
 
     line-height: 2;
 
-    opacity: .6;
+    letter-spacing: 4px;
+
+    opacity: .55;
 }
 
 
@@ -533,21 +806,22 @@ h2 {
 ========================================= */
 
 .story {
-    background: #eee3d2;
-
     justify-content: flex-start;
 
     padding-top: 110px;
+
+    background: var(--cream);
 }
 
 .story > h2 {
     max-width: 650px;
 
-    font-size: clamp(38px, 9vw, 65px);
+    font-size:
+        clamp(40px, 10vw, 68px);
 }
 
 .intro-text {
-    max-width: 420px;
+    max-width: 450px;
 
     margin-top: 25px;
 
@@ -558,11 +832,10 @@ h2 {
     opacity: .75;
 }
 
-
 .story-timeline {
     width: 100%;
 
-    max-width: 500px;
+    max-width: 470px;
 
     display: flex;
 
@@ -575,14 +848,13 @@ h2 {
     margin-top: 75px;
 }
 
-
 .story-card {
-    width: min(90vw, 400px);
+    width: min(90vw, 410px);
 }
 
 
 /* =========================================
-   PHOTO FRAMES
+   STORY PHOTOS
 ========================================= */
 
 .story-photo {
@@ -592,41 +864,51 @@ h2 {
 
     height: 470px;
 
-    padding: 14px;
+    padding: 12px;
 
-    background: #eee4d3;
+    background: #e9ddcc;
 
     box-shadow:
-        0 18px 35px rgba(55, 42, 30, .18);
+        0 20px 40px rgba(50,35,25,.18);
 
-    transform: rotate(-1.5deg);
+    transform: rotate(-1.3deg);
 
     overflow: hidden;
 }
 
-.story-card:nth-child(even) .story-photo {
-    transform: rotate(1.5deg);
+.story-card:nth-child(even)
+.story-photo {
+    transform: rotate(1.3deg);
 }
 
+.story-photo img {
+    width: 100%;
+    height: 100%;
 
-.story-photo::before {
-    content: "";
+    object-fit: cover;
 
+    display: block;
+
+    filter:
+        sepia(.08)
+        saturate(.9);
+}
+
+.photo-frame {
     position: absolute;
 
-    inset: 8px;
+    inset: 7px;
 
-    border: 1px solid #b79b79;
+    border:
+        1px solid rgba(133,105,74,.65);
 
     pointer-events: none;
-
-    z-index: 2;
 }
 
 
-/* Empty photo placeholder */
+/* empty frames */
 
-.photo-placeholder {
+.empty-photo {
     display: flex;
 
     align-items: center;
@@ -635,14 +917,12 @@ h2 {
     background:
         linear-gradient(
             145deg,
-            #e9decc,
-            #d5c5ad
+            #e3d4c0,
+            #cdbba2
         );
-
-    color: #665342;
 }
 
-.photo-placeholder > div {
+.photo-placeholder {
     display: flex;
 
     flex-direction: column;
@@ -651,24 +931,26 @@ h2 {
 
     gap: 12px;
 
-    opacity: .7;
+    color: var(--coffee);
+
+    opacity: .62;
 }
 
 .photo-placeholder span {
-    font-size: 13px;
+    font-size: 12px;
 
     letter-spacing: 4px;
 }
 
 .photo-placeholder small {
-    font-size: 13px;
+    font-size: 11px;
 
     letter-spacing: 1px;
 }
 
 
 /* =========================================
-   STORY CAPTIONS
+   STORY TEXT
 ========================================= */
 
 .story-caption {
@@ -678,19 +960,19 @@ h2 {
 
     font-size: 38px;
 
-    color: var(--dark-brown);
+    color: var(--espresso);
 }
 
-.story-caption-small {
+.story-small {
     margin-top: 7px;
 
-    font-size: 12px;
+    font-size: 11px;
 
     letter-spacing: 2px;
 
     text-transform: uppercase;
 
-    opacity: .65;
+    opacity: .6;
 }
 
 
@@ -699,7 +981,7 @@ h2 {
 ========================================= */
 
 .details {
-    background: var(--ivory);
+    background: #f6eee2;
 }
 
 .details-grid {
@@ -718,27 +1000,29 @@ h2 {
 }
 
 .detail {
-    padding: 20px;
+    padding: 22px;
 
-    border-top: 1px solid var(--beige);
+    border-top:
+        1px solid var(--taupe);
 
-    border-bottom: 1px solid var(--beige);
+    border-bottom:
+        1px solid var(--taupe);
 }
 
 .detail > span {
-    font-size: 27px;
-
     color: var(--gold);
+
+    font-size: 23px;
 }
 
 .detail h3 {
-    margin: 15px 0;
+    margin: 14px 0;
 
-    font-size: 12px;
+    font-size: 10px;
 
     letter-spacing: 4px;
 
-    color: var(--dark-brown);
+    color: var(--espresso);
 }
 
 .detail p {
@@ -759,29 +1043,28 @@ h2 {
 
     padding: 14px 28px;
 
-    border: 1px solid var(--gold);
-
-    color: var(--brown);
+    border:
+        1px solid var(--gold);
 
     background: transparent;
 
+    color: var(--coffee);
+
     text-decoration: none;
 
-    font-size: 11px;
+    font-size: 10px;
 
     letter-spacing: 3px;
 
     cursor: pointer;
 
-    transition:
-        background .3s ease,
-        color .3s ease;
+    transition: all .3s ease;
 }
 
 .vintage-button:hover {
-    background: var(--brown);
+    background: var(--coffee);
 
-    color: var(--ivory);
+    color: var(--paper);
 }
 
 
@@ -791,20 +1074,20 @@ h2 {
 
 .countdown-section {
     background:
-        #e4d5c0;
+        #dfcfba;
 }
 
 .countdown {
     width: 100%;
 
-    max-width: 700px;
+    max-width: 720px;
 
     display: grid;
 
     grid-template-columns:
         repeat(4, 1fr);
 
-    gap: 15px;
+    gap: 12px;
 
     margin-top: 65px;
 }
@@ -812,21 +1095,22 @@ h2 {
 .count-item {
     padding: 25px 5px;
 
-    border-top: 1px solid var(--gold);
+    border-top:
+        1px solid var(--gold);
 
-    border-bottom: 1px solid var(--gold);
+    border-bottom:
+        1px solid var(--gold);
 }
 
 .count-item strong {
     display: block;
 
-    font-family: "Cormorant Garamond", serif;
+    color: var(--espresso);
 
-    font-size: clamp(38px, 9vw, 65px);
+    font-size:
+        clamp(38px, 9vw, 65px);
 
     font-weight: 500;
-
-    color: var(--dark-brown);
 }
 
 .count-item span {
@@ -834,11 +1118,9 @@ h2 {
 
     margin-top: 5px;
 
-    font-size: 9px;
+    font-size: 8px;
 
     letter-spacing: 2px;
-
-    color: var(--brown);
 }
 
 
@@ -847,15 +1129,15 @@ h2 {
 ========================================= */
 
 .dress {
-    background: var(--ivory);
+    background: #f7efe4;
 }
 
 .dress-note {
+    margin-top: 10px;
+
     font-size: 18px;
 
     opacity: .7;
-
-    margin-top: 10px;
 }
 
 .color-palette {
@@ -872,7 +1154,8 @@ h2 {
 
     border-radius: 50%;
 
-    border: 1px solid var(--gold);
+    border:
+        1px solid var(--gold);
 
     background: transparent;
 }
@@ -883,26 +1166,25 @@ h2 {
 ========================================= */
 
 .rsvp {
-    background: #eee3d2;
-
     min-height: auto;
 
     padding-top: 120px;
     padding-bottom: 120px;
+
+    background: var(--cream);
 }
 
 .rsvp-intro {
     max-width: 450px;
+
+    margin: 15px 0 45px;
 
     font-size: 18px;
 
     line-height: 1.6;
 
     opacity: .75;
-
-    margin: 15px 0 45px;
 }
-
 
 #rsvpForm {
     width: min(90vw, 450px);
@@ -923,11 +1205,11 @@ h2 {
 
     gap: 8px;
 
-    font-size: 10px;
+    width: 100%;
+
+    font-size: 9px;
 
     letter-spacing: 3px;
-
-    color: var(--brown);
 }
 
 #rsvpForm input,
@@ -939,13 +1221,15 @@ h2 {
 
     border: none;
 
-    border-bottom: 1px solid var(--taupe);
-
-    background: rgba(255,255,255,.35);
-
-    color: var(--dark-brown);
+    border-bottom:
+        1px solid var(--taupe);
 
     outline: none;
+
+    background:
+        rgba(255,255,255,.35);
+
+    color: var(--espresso);
 
     font-size: 16px;
 }
@@ -957,7 +1241,7 @@ h2 {
 #rsvpForm input:focus,
 #rsvpForm select:focus,
 #rsvpForm textarea:focus {
-    border-bottom-color: var(--brown);
+    border-bottom-color: var(--coffee);
 }
 
 
@@ -974,13 +1258,13 @@ h2 {
 
     font-size: 60px;
 
-    color: var(--dark-brown);
+    color: var(--espresso);
 }
 
 .thank-you p {
-    font-size: 18px;
-
     margin-top: 10px;
+
+    font-size: 18px;
 }
 
 .thank-you span {
@@ -1003,32 +1287,34 @@ h2 {
 
     background:
         linear-gradient(
-            135deg,
-            #d8c5a9,
-            #eee3d2
+            145deg,
+            #cbb89d,
+            #e8dccb
         );
 }
 
 .final-card {
-    padding: 55px 30px;
+    width: 100%;
 
     max-width: 650px;
 
-    width: 100%;
+    padding: 55px 30px;
 
-    border: 1px solid rgba(154, 121, 80, .5);
+    border:
+        1px solid rgba(169,138,97,.55);
 }
 
 .final h2 {
     font-family: "Great Vibes", cursive;
 
-    font-size: clamp(60px, 15vw, 100px);
+    font-size:
+        clamp(60px, 15vw, 100px);
 
-    color: var(--dark-brown);
+    color: var(--espresso);
 }
 
 .final-date {
-    font-size: 15px;
+    font-size: 14px;
 
     letter-spacing: 6px;
 
@@ -1042,9 +1328,28 @@ h2 {
 
 @media (max-width: 650px) {
 
-    .section {
-        padding-left: 18px;
-        padding-right: 18px;
+    .phone {
+        width: 78vw;
+
+        height: 70vh;
+
+        min-height: 500px;
+
+        max-height: 640px;
+    }
+
+    .opening-title {
+        top: 5vh;
+    }
+
+    .opening-subtitle {
+        top: calc(5vh + 25px);
+    }
+
+    .opening-bottom {
+        bottom: 3vh;
+
+        font-size: 7px;
     }
 
     .details-grid {
@@ -1060,7 +1365,7 @@ h2 {
     }
 
     .countdown {
-        gap: 8px;
+        gap: 7px;
     }
 
     .count-item {
@@ -1068,7 +1373,7 @@ h2 {
     }
 
     .count-item strong {
-        font-size: 35px;
+        font-size: 34px;
     }
 
     .count-item span {
@@ -1080,31 +1385,49 @@ h2 {
     .story-photo {
         height: 430px;
     }
-
-    .envelope {
-        width: 88vw;
-    }
-
 }
 
 
 /* =========================================
-   VERY SMALL PHONES
+   SMALL PHONES
 ========================================= */
 
 @media (max-width: 380px) {
 
-    .hero h1 {
-        font-size: 68px;
+    .phone {
+        width: 82vw;
+
+        min-height: 470px;
+    }
+
+    .seal {
+        width: 90px;
+        height: 90px;
+
+        font-size: 46px;
+    }
+
+    .date-reveal {
+        font-size: 35px;
     }
 
     .story-photo {
         height: 390px;
     }
+}
 
-    .wax-seal {
-        width: 52px;
-        height: 52px;
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
     }
-
 }
