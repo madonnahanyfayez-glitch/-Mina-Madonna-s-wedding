@@ -1,72 +1,186 @@
 /* =========================================
    MINA & MADONNA
-   WEDDING INVITATION
+   CINEMATIC WEDDING INVITATION
 ========================================= */
 
 
 /* =========================================
-   ENVELOPE
+   ELEMENTS
 ========================================= */
 
-const envelopeScreen =
-    document.getElementById("envelopeScreen");
+const opening =
+    document.getElementById("opening");
 
-const envelope =
-    document.getElementById("envelope");
+const phone =
+    document.getElementById("phone");
 
 const invitation =
     document.getElementById("invitation");
+
+const music =
+    document.getElementById("weddingMusic");
 
 const musicBtn =
     document.getElementById("musicBtn");
 
 
-let envelopeOpened = false;
+const screens = [
+    document.getElementById("screenSeal"),
+    document.getElementById("screenPhoto"),
+    document.getElementById("screenDate"),
+    document.getElementById("screenMonogram"),
+    document.getElementById("screenFinal")
+];
 
 
-function openInvitation() {
-
-    if (envelopeOpened) {
-        return;
-    }
-
-    envelopeOpened = true;
-
-    /* Open the envelope */
-
-    envelope.classList.add("open");
+let started = false;
+let musicPlaying = false;
 
 
-    /* Wait for the letter animation */
+/* =========================================
+   CINEMATIC OPENING
+========================================= */
+
+function showScreen(index) {
+
+    screens.forEach((screen, i) => {
+
+        if (!screen) return;
+
+        screen.classList.toggle(
+            "active",
+            i === index
+        );
+
+    });
+
+}
+
+
+/* =========================================
+   START EXPERIENCE
+========================================= */
+
+function startExperience() {
+
+    if (started) return;
+
+    started = true;
+
+    /*
+        STEP 1
+        Seal disappears
+    */
+
+    showScreen(0);
+
 
     setTimeout(() => {
 
-        envelopeScreen.classList.add("opened");
+        showScreen(1);
+
+    }, 1600);
+
+
+    /*
+        STEP 2
+        Childhood photo
+    */
+
+    setTimeout(() => {
+
+        showScreen(2);
+
+    }, 6500);
+
+
+    /*
+        STEP 3
+        Date
+    */
+
+    setTimeout(() => {
+
+        showScreen(3);
+
+    }, 9000);
+
+
+    /*
+        STEP 4
+        Monogram
+    */
+
+    setTimeout(() => {
+
+        showScreen(4);
+
+    }, 11500);
+
+
+    /*
+        STEP 5
+        Final message
+    */
+
+    setTimeout(() => {
+
+        showScreen(4);
+
+    }, 14500);
+
+
+    /*
+        Finish cinematic intro
+        and reveal invitation
+    */
+
+    setTimeout(() => {
+
+        opening.classList.add("finished");
 
         invitation.classList.remove("hidden");
 
-        /*
-           Keep the page at the beginning
-           of the invitation.
-        */
+        document.body.style.overflow = "auto";
 
         window.scrollTo({
             top: 0,
             behavior: "smooth"
         });
 
-    }, 1450);
+    }, 18500);
 
 }
 
 
-/*
-   The entire envelope is clickable.
-*/
+/* =========================================
+   PHONE CLICK
+========================================= */
 
-envelope.addEventListener(
+phone.addEventListener(
     "click",
-    openInvitation
+    startExperience
+);
+
+
+/* Keyboard accessibility */
+
+phone.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (
+            event.key === "Enter" ||
+            event.key === " "
+        ) {
+
+            event.preventDefault();
+
+            startExperience();
+
+        }
+
+    }
 );
 
 
@@ -89,8 +203,6 @@ function updateCountdown() {
         weddingDate - now;
 
 
-    /* Wedding day reached */
-
     if (difference <= 0) {
 
         document.getElementById("days").innerText = "00";
@@ -102,10 +214,9 @@ function updateCountdown() {
         document.getElementById("seconds").innerText = "00";
 
         return;
+
     }
 
-
-    /* Days */
 
     const days =
         Math.floor(
@@ -114,16 +225,12 @@ function updateCountdown() {
         );
 
 
-    /* Hours */
-
     const hours =
         Math.floor(
             (difference /
             (1000 * 60 * 60)) % 24
         );
 
-
-    /* Minutes */
 
     const minutes =
         Math.floor(
@@ -132,15 +239,11 @@ function updateCountdown() {
         );
 
 
-    /* Seconds */
-
     const seconds =
         Math.floor(
             (difference / 1000) % 60
         );
 
-
-    /* Update screen */
 
     document.getElementById("days").innerText =
         String(days).padStart(2, "0");
@@ -160,8 +263,6 @@ function updateCountdown() {
 }
 
 
-/* Start countdown */
-
 updateCountdown();
 
 setInterval(
@@ -174,45 +275,38 @@ setInterval(
    MUSIC
 ========================================= */
 
-const music =
-    document.getElementById("weddingMusic");
-
-
-let isPlaying = false;
-
-
 musicBtn.addEventListener(
     "click",
-    function () {
+    function() {
 
-        if (isPlaying) {
+        if (!music) return;
 
-            music.pause();
 
-            musicBtn.innerHTML = "♫";
-
-            isPlaying = false;
-
-        } else {
+        if (!musicPlaying) {
 
             music.play()
                 .then(() => {
 
-                    musicBtn.innerHTML = "❚❚";
+                    musicPlaying = true;
 
-                    isPlaying = true;
+                    musicBtn.innerHTML = "❚❚";
 
                 })
                 .catch(() => {
 
-                    /*
-                       Browser blocked autoplay.
-                       User can press the button again.
-                    */
+                    musicPlaying = false;
 
                     musicBtn.innerHTML = "♫";
 
                 });
+
+        } else {
+
+            music.pause();
+
+            musicPlaying = false;
+
+            musicBtn.innerHTML = "♫";
 
         }
 
@@ -231,34 +325,38 @@ const thankYou =
     document.getElementById("thankYou");
 
 
-rsvpForm.addEventListener(
-    "submit",
-    function (event) {
+if (rsvpForm) {
 
-        event.preventDefault();
+    rsvpForm.addEventListener(
+        "submit",
+        function(event) {
 
-
-        /*
-           For now this is the visual RSVP.
-           Later we can connect it to
-           Google Sheets / Formspree so
-           you actually receive the responses.
-        */
+            event.preventDefault();
 
 
-        rsvpForm.classList.add("hidden");
+            rsvpForm.classList.add(
+                "hidden"
+            );
 
-        thankYou.classList.remove("hidden");
+
+            thankYou.classList.remove(
+                "hidden"
+            );
 
 
-        /*
-           Scroll gently to thank-you message.
-        */
+            thankYou.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
 
-        thankYou.scrollIntoView({
-            behavior: "smooth",
-            block: "center"
-        });
+        }
+    );
 
-    }
-);
+}
+
+
+/* =========================================
+   PREVENT SCROLL DURING INTRO
+========================================= */
+
+document.body.style.overflow = "hidden";
