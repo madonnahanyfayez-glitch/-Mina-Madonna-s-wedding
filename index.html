@@ -2,87 +2,77 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<meta name="theme-color" content="#182018">
 <title>Mina & Madonna — 22.11.2026</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <audio id="music" src="music.mp3" loop preload="auto"></audio>
+<main class="invite" id="invite">
 
-<main class="invite" aria-live="polite">
-  <section class="scene active" data-scene="0" style="--bg:url('scenes/01-opening.jpg')">
-    <button class="hotspot seal" id="openBtn" aria-label="Open invitation">✦</button>
-    <div class="scene-copy">
-      <p class="eyebrow">A STORY<br>WE CAN'T WAIT<br>TO SHARE</p>
-      <p class="tap">TAP TO OPEN</p>
-    </div>
-  </section>
+<section class="scene active opening" data-scene="0" style="--bg:url('scenes/01-opening.jpg')">
+  <div class="grain"></div>
+  <button class="seal" id="openBtn" aria-label="Tap to open invitation"><span>✦</span></button>
+  <div class="opening-copy"><p>A STORY<br>WE CAN'T WAIT<br>TO SHARE</p><small>TAP TO OPEN</small></div>
+</section>
 
-  <section class="scene" data-scene="1" style="--bg:url('scenes/02-names.jpg')">
-    <div class="scene-copy center"><h1>Mina<br><span>&amp;</span><br>Madonna</h1><p>22 · 11 · 2026</p></div>
-  </section>
+<section class="scene" data-scene="1" style="--bg:url('scenes/02-names.jpg')">
+  <div class="reveal reveal-names"><p class="micro">THE BEGINNING OF FOREVER</p><h1>Mina <em>&amp;</em> Madonna</h1><p class="date">22 · 11 · 2026</p></div>
+</section>
 
-  <section class="scene" data-scene="2" style="--bg:url('scenes/03-story.jpg')">
-    <div class="scene-copy top"><p class="eyebrow">SOME STORIES<br>BEGIN LONG BEFORE</p></div>
-  </section>
+<section class="scene" data-scene="2" style="--bg:url('scenes/03-story.jpg')">
+  <div class="reveal top"><p class="micro">SOME STORIES</p><h2>BEGIN LONG BEFORE</h2></div>
+</section>
 
-  <section class="scene" data-scene="3" style="--bg:url('scenes/04-childhood.jpg')">
-    <div class="scene-copy top"><p class="eyebrow">OUR STORY</p></div>
-  </section>
+<section class="scene photo-scene" data-scene="3" style="--bg:url('scenes/04-childhood.jpg')">
+  <div class="reveal photo-caption"><span>OUR STORY</span><p>long before we knew<br>where the story was going</p></div>
+</section>
 
-  <section class="scene" data-scene="4" style="--bg:url('scenes/05-yes.jpg')">
-    <div class="scene-copy bottom"><p class="eyebrow">AND THEN<br>CAME THE YES</p></div>
-  </section>
+<section class="scene" data-scene="4" style="--bg:url('scenes/05-yes.jpg')">
+  <div class="reveal bottom"><p class="micro">AND THEN</p><h2>CAME THE YES</h2></div>
+</section>
 
-  <section class="scene" data-scene="5" style="--bg:url('scenes/06-memories.jpg')">
-    <div class="scene-copy bottom"><p class="eyebrow">ONE<br>MEMORY<br>AT A TIME</p></div>
-  </section>
+<section class="scene" data-scene="5" style="--bg:url('scenes/06-memories.jpg')">
+  <div class="reveal bottom"><p class="micro">ONE</p><h2>MEMORY AT A TIME</h2></div>
+</section>
 
-  <section class="scene" data-scene="6" style="--bg:url('scenes/07-our-day.jpg')">
-    <div class="scene-copy center"><p class="eyebrow">AND NOW</p><h2>OUR DAY</h2></div>
-  </section>
+<section class="scene" data-scene="6" style="--bg:url('scenes/07-our-day.jpg')">
+  <div class="reveal center"><p class="micro">AND NOW</p><h2>OUR DAY</h2><div class="date-line">22 · 11 · 2026</div></div>
+</section>
 
-  <section class="scene" data-scene="7" style="--bg:url('scenes/08-place.jpg')">
-    <div class="scene-copy center"><p class="eyebrow">THE PLACE</p><h2>St. Mark</h2><p>COPTIC ORTHODOX CHURCH<br>CLEOPATRA, HELIOPOLIS</p></div>
-    <a class="pill map" href="https://maps.app.goo.gl/Jndjn72K9i4ZEqaU7?g_st=ic" target="_blank" rel="noopener">OPEN MAP ↗</a>
-  </section>
+<section class="scene" data-scene="7" style="--bg:url('scenes/08-place.jpg')">
+  <div class="reveal place"><p class="micro">THE PLACE</p><h2>St. Mark</h2><p class="details">COPTIC ORTHODOX CHURCH<br>CLEOPATRA · HELIOPOLIS</p>
+  <a class="action" href="https://maps.app.goo.gl/Jndjn72K9i4ZEqaU7?g_st=ic" target="_blank" rel="noopener">OPEN MAP <span>↗</span></a></div>
+</section>
 
-  <section class="scene" data-scene="8" style="--bg:url('scenes/09-time.jpg')">
-    <div class="scene-copy center"><p class="eyebrow">THE TIME</p><div class="clock">7:00<small>PM</small></div><p>SUNDAY<br>22 NOVEMBER 2026</p></div>
-  </section>
+<section class="scene" data-scene="8" style="--bg:url('scenes/09-time.jpg')">
+  <div class="reveal center time"><p class="micro">THE TIME</p><div class="clock">7:00 <small>PM</small></div><p class="details">SUNDAY<br>22 NOVEMBER 2026</p></div>
+</section>
 
-  <section class="scene" data-scene="9" style="--bg:url('scenes/10-vibe.jpg')">
-    <div class="scene-copy bottom"><p class="eyebrow">THE VIBE<br>DRESS CODE</p><p class="small">A TOUCH OF THESE COLORS<br>TO MAKE OUR DAY EVEN MORE SPECIAL</p></div>
-    <div class="swatches"><i></i><i></i><i></i></div>
-  </section>
+<section class="scene" data-scene="9" style="--bg:url('scenes/10-vibe.jpg')">
+  <div class="reveal bottom vibe"><p class="micro">THE VIBE</p><h2>DRESS CODE</h2><p class="details">A TOUCH OF THESE COLORS<br>TO MAKE OUR DAY EVEN MORE SPECIAL</p>
+  <div class="swatches"><i></i><i></i><i></i><i></i><i></i></div></div>
+</section>
 
-  <section class="scene" data-scene="10" style="--bg:url('scenes/11-rsvp.jpg')">
-    <div class="scene-copy center"><p class="eyebrow">BE OUR GUEST</p><p>We'd love to celebrate with you.</p><button class="pill" id="rsvpBtn">RSVP →</button></div>
-  </section>
+<section class="scene" data-scene="10" style="--bg:url('scenes/11-rsvp.jpg')">
+  <div class="reveal center rsvp"><p class="micro">BE OUR GUEST</p><h2>RSVP</h2><p>We'd love to celebrate<br>this day with you.</p>
+  <button class="action" id="rsvpBtn">LEAVE YOUR RSVP <span>→</span></button></div>
+</section>
 
-  <section class="scene" data-scene="11" style="--bg:url('scenes/12-final.jpg')">
-    <div class="scene-copy center"><p class="eyebrow">WE CAN'T WAIT<br>TO CELEBRATE<br>WITH YOU</p><h1>Mina<br><span>&amp;</span><br>Madonna</h1><p>22 · 11 · 2026</p></div>
-  </section>
+<section class="scene" data-scene="11" style="--bg:url('scenes/12-final.jpg')">
+  <div class="reveal center final"><p class="micro">WE CAN'T WAIT<br>TO CELEBRATE<br>WITH YOU</p><h1>Mina <em>&amp;</em> Madonna</h1><p class="date">22 · 11 · 2026</p><div class="countdown" id="countdown"></div></div>
+</section>
 </main>
 
-<div class="controls">
-  <button id="prev" aria-label="Previous">‹</button>
-  <div id="dots"></div>
-  <button id="next" aria-label="Next">›</button>
-</div>
+<div class="progress" id="progress"><span></span></div>
 <button class="music" id="musicBtn" aria-label="Music">♫</button>
 
 <div class="rsvp-modal" id="modal" aria-hidden="true">
-  <div class="modal-card">
-    <button class="close" id="close">×</button>
-    <p class="eyebrow">BE OUR GUEST</p>
-    <h3>RSVP</h3>
-    <input placeholder="Your name">
-    <input type="number" min="1" placeholder="Number of guests">
-    <textarea placeholder="A little message"></textarea>
-    <button class="pill" id="send">SEND LOVE →</button>
-    <p class="thanks" id="thanks">Thank you ♡</p>
-  </div>
+<div class="modal-card"><button class="close" id="close">×</button><p class="micro">BE OUR GUEST</p><h3>RSVP</h3>
+<input id="guestName" placeholder="Your name"><input id="guestCount" type="number" min="1" placeholder="Number of guests">
+<textarea id="guestMessage" placeholder="A little message"></textarea>
+<button class="action dark" id="send">SEND LOVE <span>→</span></button><p class="thanks" id="thanks">Thank you ♡</p></div>
 </div>
 <script src="script.js"></script>
 </body>
