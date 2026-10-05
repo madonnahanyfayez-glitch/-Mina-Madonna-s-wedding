@@ -7,98 +7,165 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<audio id="music" src="music.mp3" loop preload="auto"></audio>
+<audio id="music" src="music.mp3" loop></audio>
 
-<header class="floating"><button id="musicBtn">♫</button></header>
+<div class="music"><button id="musicBtn">♫</button></div>
+<div class="scroll-line"><span></span></div>
 
 <main>
-<section class="hero envelope-section">
-  <div class="paper-grain"></div>
-  <div class="envelope" id="envelope">
-    <div class="env-back"></div><div class="env-pocket"></div>
-    <div class="env-flap"></div>
-    <button class="wax" id="openEnvelope" aria-label="Open invitation">M<span>♥</span>M</button>
-  </div>
-  <div class="hero-copy"><span>A STORY WE CAN'T WAIT TO SHARE</span><b>TAP THE SEAL TO OPEN</b></div>
-</section>
 
-<section class="story paper-section">
-  <div class="section-inner">
-    <p class="kicker">OUR STORY</p>
-    <h1>SOME STORIES<br><i>BEGIN LONG BEFORE</i></h1>
-    <div class="photo-collage">
-      <div class="photo-slot main-slot"><span>YOUR PHOTO</span></div>
-      <div class="photo-slot small-slot s1"><span>PHOTO</span></div>
-      <div class="photo-slot small-slot s2"><span>PHOTO</span></div>
-      <div class="photo-slot small-slot s3"><span>PHOTO</span></div>
-      <div class="scribble">little moments<br>that became<br>everything</div>
+<!-- 01 OPENING -->
+<section class="story opening" id="opening">
+  <div class="olive-card">
+    <div class="opening-copy"><small>A STORY</small><b>WE CAN'T WAIT<br>TO SHARE</b></div>
+    <div class="envelope">
+      <div class="flap"></div>
+      <div class="paper">
+        <span>MINA</span><i>&amp;</i><span>MADONNA</span>
+      </div>
+      <button class="seal" id="seal">M <em>♡</em> M</button>
     </div>
-    <p class="body-copy">Before the dress. Before the flowers.<br>Before we knew this day would be ours.</p>
+    <p class="tap">TAP THE SEAL</p>
   </div>
 </section>
 
-<section class="yes-section">
-  <div class="side-note">AND THEN<br><strong>CAME THE YES</strong></div>
-  <div class="yes-card">
-    <div class="photo-slot proposal-slot"><span>PROPOSAL / ENGAGEMENT PHOTO</span></div>
-    <p class="kicker">THE CHAPTER WE CHOSE</p>
-    <h2>AND THEN<br><i>CAME THE YES</i></h2>
+<!-- 02 NAMES -->
+<section class="story names">
+  <div class="paper">
+    <div class="flowers">✽　❧　✽</div>
+    <p class="kicker reveal">THE BEGINNING OF FOREVER</p>
+    <h1 class="script reveal">Mina<br><span>&amp;</span> Madonna</h1>
+    <p class="date reveal">22 · 11 · 2026</p>
   </div>
 </section>
 
-<section class="place-section">
-  <div class="church-art" id="churchButton" role="button" tabindex="0" aria-label="Reveal location">
-    <div class="church-dome"></div><div class="church-body"></div><div class="church-cross">✦</div>
-    <span>ST. MARK</span>
+<!-- 03 CHILDHOOD -->
+<section class="story childhood">
+  <div class="journal">
+    <p class="kicker reveal">OUR STORY</p>
+    <h2 class="reveal">Some stories<br><i>begin long before.</i></h2>
+    <div class="memory-layout">
+      <div class="photo blank main-photo reveal"><span>CHILDHOOD PHOTO</span></div>
+      <div class="photo blank mini m1 reveal"><span>PHOTO</span></div>
+      <div class="photo blank mini m2 reveal"><span>PHOTO</span></div>
+      <div class="photo blank mini m3 reveal"><span>PHOTO</span></div>
+      <p class="hand reveal">two little lives,<br>before they knew<br>they'd meet.</p>
+    </div>
   </div>
-  <div class="place-copy">
-    <p class="kicker">THE PLACE</p><h2>Where we say<br><i>“I do.”</i></h2>
-    <div class="location-reveal" id="locationReveal">
-      <p>ST. MARK COPTIC ORTHODOX CHURCH<br>⚜ CLEOPATRA · HELIOPOLIS</p>
+</section>
+
+<!-- 04 YES -->
+<section class="story yes">
+  <div class="yes-paper">
+    <p class="kicker reveal">AND THEN</p>
+    <h2 class="reveal">CAME<br><i>THE YES</i></h2>
+    <div class="photo blank engagement reveal"><span>ENGAGEMENT PHOTO</span></div>
+    <div class="stamp reveal">THE<br>YES</div>
+  </div>
+</section>
+
+<!-- 05 MEMORIES -->
+<section class="story memories">
+  <div class="film">
+    <p class="kicker reveal">ONE MEMORY AT A TIME</p>
+    <div class="film-strip">
+      <div class="film-frame blank reveal"><span>PHOTO</span></div>
+      <div class="film-frame blank reveal"><span>PHOTO</span></div>
+      <div class="film-frame blank reveal"><span>PHOTO</span></div>
+      <div class="film-frame blank reveal"><span>PHOTO</span></div>
+    </div>
+    <p class="film-caption reveal">little pieces of us</p>
+  </div>
+</section>
+
+<!-- 06 OUR DAY -->
+<section class="story our-day">
+  <div class="arch">
+    <div class="arch-copy">
+      <p class="kicker reveal">AND NOW</p>
+      <h2 class="reveal">OUR DAY</h2>
+      <p class="reveal">A new chapter begins.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 07 PLACE -->
+<section class="story place">
+  <div class="place-card">
+    <p class="kicker reveal">THE PLACE</p>
+    <h2 class="reveal">St. Mark</h2>
+    <div class="church-drawing reveal" id="churchTap" tabindex="0" role="button">
+      <span class="dome"></span><span class="tower left"></span><span class="tower right"></span><span class="cross">✦</span>
+      <span class="church-label">TAP THE CHURCH</span>
+    </div>
+    <div class="location reveal" id="location">
+      <p>COPTIC ORTHODOX CHURCH<br>CLEOPATRA · HELIOPOLIS</p>
       <a href="https://maps.app.goo.gl/Jndjn72K9i4ZEqaU7?g_st=ic" target="_blank">OPEN LOCATION ↗</a>
     </div>
-    <small>TAP THE CHURCH</small>
   </div>
 </section>
 
-<section class="time-section">
-  <div class="clock-art"><span class="hand hour"></span><span class="hand minute"></span><span class="center-dot"></span></div>
-  <p class="kicker">THE TIME</p>
-  <h2>7:00 <i>PM</i></h2>
-  <p class="date">SUNDAY · 22 NOVEMBER 2026</p>
+<!-- 08 TIME / COUNTDOWN -->
+<section class="story time">
+  <div class="clock-card">
+    <p class="kicker reveal">THE TIME</p>
+    <div class="clock reveal"><span class="hour"></span><span class="minute"></span><b></b></div>
+    <h2 class="reveal">7:00 <i>PM</i></h2>
+    <p class="date reveal">SUNDAY · 22 NOVEMBER 2026</p>
+  </div>
+  <div class="countdown reveal" id="countdown"></div>
 </section>
 
-<section class="countdown-section">
-  <div class="countdown-paper">
-    <p class="kicker">COUNTING DOWN TO OUR DAY</p>
-    <div id="countdown">00 <small>DAYS</small> : 00 <small>HRS</small> : 00 <small>MIN</small> : 00 <small>SEC</small></div>
+<!-- 09 DRESS CODE -->
+<section class="story dress">
+  <div class="dress-head">
+    <p class="kicker reveal">THE VIBE</p>
+    <h2 class="reveal">DRESS <i>CODE</i></h2>
+    <p class="reveal">Come dressed in a touch of our colors.</p>
+  </div>
+  <div class="fashion-row">
+    <div class="figure mint reveal"><span class="head"></span><span class="dress-body"></span><small>MINT</small></div>
+    <div class="figure burg reveal"><span class="head"></span><span class="dress-body"></span><small>BURGUNDY</small></div>
+    <div class="figure yellow reveal"><span class="head"></span><span class="dress-body"></span><small>YELLOW</small></div>
+    <div class="figure cream reveal"><span class="head"></span><span class="dress-body"></span><small>CREAM</small></div>
+  </div>
+  <div class="swatches reveal"><b></b><b></b><b></b><b></b><b></b></div>
+</section>
+
+<!-- 10 RSVP -->
+<section class="story rsvp">
+  <div class="rsvp-envelope" id="rsvpEnvelope">
+    <div class="rsvp-flap"></div>
+    <span>BE OUR GUEST</span>
+    <button id="rsvpBtn">TAP TO OPEN</button>
+  </div>
+  <p class="kicker reveal">WE'D LOVE TO HAVE YOU</p>
+</section>
+
+<!-- 11 FINAL -->
+<section class="story final">
+  <div class="final-copy">
+    <p class="kicker reveal">WE CAN'T WAIT<br>TO CELEBRATE WITH YOU</p>
+    <h1 class="script reveal">Mina<br><span>&amp;</span> Madonna</h1>
+    <p class="date reveal">22 · 11 · 2026</p>
   </div>
 </section>
 
-<section class="dress-section">
-  <div class="dress-copy"><p class="kicker">THE VIBE</p><h2>DRESS <i>CODE</i></h2><p>A little color makes<br>our day even more special.</p></div>
-  <div class="people">
-    <div class="person p-mint"><div class="head"></div><div class="body"></div></div>
-    <div class="person p-burg"><div class="head"></div><div class="body"></div></div>
-    <div class="person p-yellow"><div class="head"></div><div class="body"></div></div>
-    <div class="person p-cream"><div class="head"></div><div class="body"></div></div>
-  </div>
-  <div class="palette"><b>Mint</b><b>Burgundy</b><b>Yellow</b><b>Cream</b><b>Olive</b></div>
-</section>
-
-<section class="rsvp-section">
-  <div class="rsvp-envelope"><div class="mini-flap"></div><span>BE OUR GUEST</span></div>
-  <p class="kicker">WE'D LOVE TO HAVE YOU</p><h2>RSVP</h2>
-  <button id="rsvpBtn">OPEN RSVP ↗</button>
-</section>
-
-<section class="final-section">
-  <p class="kicker">WE CAN'T WAIT TO CELEBRATE WITH YOU</p>
-  <h1>Mina <i>&amp;</i> Madonna</h1><p>22 · 11 · 2026</p>
-</section>
 </main>
 
-<div class="modal" id="modal"><div class="form-card"><button id="close">×</button><p class="kicker">BE OUR GUEST</p><h2>RSVP</h2><input placeholder="Your name"><input type="number" min="1" placeholder="Number of guests"><textarea placeholder="A little message"></textarea><button id="send">SEND LOVE →</button><strong id="thanks">Thank you ♡</strong></div></div>
+<div class="modal" id="modal">
+  <div class="form-card">
+    <button id="close">×</button>
+    <p class="kicker">BE OUR GUEST</p>
+    <h2>RSVP</h2>
+    <input placeholder="Your name">
+    <input type="number" min="1" placeholder="Number of guests">
+    <textarea placeholder="A little message"></textarea>
+    <button id="send">SEND LOVE →</button>
+    <strong id="thanks">Thank you ♡</strong>
+  </div>
+</div>
+
 <script src="script.js"></script>
 </body>
 </html>
