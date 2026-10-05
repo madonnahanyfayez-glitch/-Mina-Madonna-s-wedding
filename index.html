@@ -12,696 +12,775 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Great+Vibes&family=Italianno&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<!-- MUSIC -->
+    <!-- MUSIC -->
 
-<button id="musicBtn" class="music-btn">♫</button>
+    <button id="musicBtn" class="music-btn" aria-label="Music">
+        ♫
+    </button>
 
-<audio id="weddingMusic" loop>
-    <source src="music.mp3" type="audio/mpeg">
-</audio>
+    <audio id="weddingMusic" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
 
 
-<!-- =========================================
-     CINEMATIC OPENING
-========================================= -->
+    <!-- =========================================
+         CINEMATIC INVITATION OPENING
+    ========================================== -->
 
-<section id="opening" class="opening">
+    <section id="opening" class="opening">
 
-    <div class="opening-glow"></div>
+        <div class="opening-noise"></div>
 
-    <p class="opening-title">
-        MINA & MADONNA
-    </p>
+        <div class="opening-vignette"></div>
 
-    <p class="opening-subtitle">
-        A little story before the big day
-    </p>
 
+        <!-- INTRO -->
 
-    <div
-        id="phone"
-        class="phone"
-        role="button"
-        tabindex="0"
-        aria-label="Open invitation">
+        <div id="introText" class="intro-text">
 
-        <div class="phone-frame">
-
-            <div class="phone-screen">
-
-
-                <!-- SCREEN 1 -->
-
-                <div
-                    id="screenSeal"
-                    class="reveal-screen active">
-
-                    <div class="paper-texture"></div>
-
-                    <div class="seal-wrap">
-
-                        <div class="seal">
-
-                            <span>M</span>
-
-                        </div>
-
-                    </div>
-
-                    <p class="tap">
-                        TAP TO BEGIN
-                    </p>
-
-                </div>
-
-
-                <!-- SCREEN 2 -->
-
-                <div
-                    id="screenPhoto"
-                    class="reveal-screen">
-
-                    <img
-                        src="childhood.jpg"
-                        alt="Mina and Madonna as children">
-
-                    <div class="photo-overlay"></div>
-
-                    <p class="photo-caption">
-                        Before we knew...
-                    </p>
-
-                </div>
-
-
-                <!-- SCREEN 3 -->
-
-                <div
-                    id="screenDate"
-                    class="reveal-screen">
-
-                    <div class="date-reveal">
-
-                        <span>22</span>
-
-                        <i>·</i>
-
-                        <span>11</span>
-
-                        <i>·</i>
-
-                        <span>26</span>
-
-                    </div>
-
-                    <p>
-                        OUR DAY
-                    </p>
-
-                </div>
-
-
-                <!-- SCREEN 4 -->
-
-                <div
-                    id="screenMonogram"
-                    class="reveal-screen">
-
-                    <div class="ornate-frame">
-
-                        <div class="monogram">
-                            M
-                            <small>&</small>
-                            M
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- SCREEN 5 -->
-
-                <div
-                    id="screenFinal"
-                    class="reveal-screen">
-
-                    <div class="final-reveal">
-
-                        <div class="mini-seal">
-                            M
-                        </div>
-
-                        <div class="mini-ornament">
-                            ❦
-                        </div>
-
-                        <p>
-                            We can't wait to
-                            celebrate with you.
-                        </p>
-
-                        <strong>
-                            22 · 11 · 2026
-                        </strong>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <p class="opening-bottom">
-        OUR STORY IS JUST BEGINNING
-    </p>
-
-</section>
-
-
-
-<!-- =========================================
-     MAIN INVITATION
-========================================= -->
-
-<main id="invitation" class="hidden">
-
-
-    <!-- HERO -->
-
-    <section class="hero section">
-
-        <div class="hero-inner">
-
-            <p class="eyebrow">
-                WITH LOVE
-            </p>
+            <span class="intro-small">
+                A STORY OF
+            </span>
 
             <h1>
                 Mina
-                <span>&</span>
+                <i>&</i>
                 Madonna
             </h1>
 
-            <div class="ornament">
-                ❦
-            </div>
-
-            <p class="date">
+            <span class="intro-date">
                 22 · 11 · 2026
-            </p>
-
-            <p class="scroll-hint">
-                SCROLL TO DISCOVER
-                <br>
-                ↓
-            </p>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================================
-         OUR STORY
-    ========================================= -->
-
-    <section class="story section">
-
-        <p class="eyebrow">
-            OUR STORY
-        </p>
-
-        <h2>
-            Before forever...
-        </h2>
-
-        <p class="intro-text">
-            Some stories begin with a first hello.
-            Ours began much earlier.
-        </p>
-
-
-        <div class="story-timeline">
-
-
-            <!-- CHILDHOOD -->
-
-            <article class="story-card">
-
-                <div class="story-photo">
-
-                    <img
-                        src="childhood.jpg"
-                        alt="Mina and Madonna as children">
-
-                    <div class="photo-frame"></div>
-
-                </div>
-
-                <p class="story-caption">
-                    Once upon a time...
-                </p>
-
-                <p class="story-small">
-                    A long time before "us"
-                </p>
-
-            </article>
-
-
-
-            <!-- PROPOSAL -->
-
-            <article class="story-card">
-
-                <div class="story-photo empty-photo">
-
-                    <div class="photo-placeholder">
-
-                        <span>
-                            OUR PROPOSAL
-                        </span>
-
-                        <small>
-                            PHOTO COMING SOON
-                        </small>
-
-                    </div>
-
-                    <div class="photo-frame"></div>
-
-                </div>
-
-                <p class="story-caption">
-                    And then came the yes.
-                </p>
-
-                <p class="story-small">
-                    The beginning of forever
-                </p>
-
-            </article>
-
-
-
-            <!-- ENGAGEMENT -->
-
-            <article class="story-card">
-
-                <div class="story-photo empty-photo">
-
-                    <div class="photo-placeholder">
-
-                        <span>
-                            OUR MEMORIES
-                        </span>
-
-                        <small>
-                            PHOTO COMING SOON
-                        </small>
-
-                    </div>
-
-                    <div class="photo-frame"></div>
-
-                </div>
-
-                <p class="story-caption">
-                    Growing together.
-                </p>
-
-                <p class="story-small">
-                    One memory at a time
-                </p>
-
-            </article>
-
-
-
-            <!-- TODAY -->
-
-            <article class="story-card">
-
-                <div class="story-photo empty-photo">
-
-                    <div class="photo-placeholder">
-
-                        <span>
-                            TODAY
-                        </span>
-
-                        <small>
-                            PHOTO COMING SOON
-                        </small>
-
-                    </div>
-
-                    <div class="photo-frame"></div>
-
-                </div>
-
-                <p class="story-caption">
-                    And here we are.
-                </p>
-
-                <p class="story-small">
-                    Almost forever
-                </p>
-
-            </article>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================================
-         WEDDING DETAILS
-    ========================================= -->
-
-    <section class="details section">
-
-        <p class="eyebrow">
-            THE DAY
-        </p>
-
-        <h2>
-            Join us
-        </h2>
-
-        <div class="ornament">
-            ❦
-        </div>
-
-
-        <div class="details-grid">
-
-
-            <div class="detail">
-
-                <span>♡</span>
-
-                <h3>
-                    DATE
-                </h3>
-
-                <p>
-                    Sunday
-                    <br>
-                    22 November 2026
-                </p>
-
-            </div>
-
-
-            <div class="detail">
-
-                <span>◷</span>
-
-                <h3>
-                    TIME
-                </h3>
-
-                <p>
-                    7:00 PM
-                </p>
-
-            </div>
-
-
-            <div class="detail">
-
-                <span>⌖</span>
-
-                <h3>
-                    VENUE
-                </h3>
-
-                <p>
-                    St. Mark Coptic Orthodox Church
-                    <br>
-                    Cleopatra, Heliopolis
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <a
-            class="vintage-button"
-            href="https://maps.app.goo.gl/Jndjn72K9i4ZEqaU7?g_st=ic"
-            target="_blank">
-
-            VIEW LOCATION
-
-        </a>
-
-    </section>
-
-
-
-    <!-- =========================================
-         COUNTDOWN
-    ========================================= -->
-
-    <section class="countdown-section section">
-
-        <p class="eyebrow">
-            COUNTING DOWN TO
-        </p>
-
-        <h2>
-            Our Day
-        </h2>
-
-
-        <div class="countdown">
-
-            <div class="count-item">
-                <strong id="days">00</strong>
-                <span>DAYS</span>
-            </div>
-
-            <div class="count-item">
-                <strong id="hours">00</strong>
-                <span>HOURS</span>
-            </div>
-
-            <div class="count-item">
-                <strong id="minutes">00</strong>
-                <span>MINUTES</span>
-            </div>
-
-            <div class="count-item">
-                <strong id="seconds">00</strong>
-                <span>SECONDS</span>
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================================
-         DRESS CODE
-    ========================================= -->
-
-    <section class="dress section">
-
-        <p class="eyebrow">
-            DRESS CODE
-        </p>
-
-        <h2>
-            Your Look
-        </h2>
-
-        <div class="ornament">
-            ❦
-        </div>
-
-        <p class="dress-note">
-            Details coming soon...
-        </p>
-
-
-        <div class="color-palette">
-
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================================
-         RSVP
-    ========================================= -->
-
-    <section class="rsvp section">
-
-        <p class="eyebrow">
-            RSVP
-        </p>
-
-        <h2>
-            Be our guest
-        </h2>
-
-        <div class="ornament">
-            ❦
-        </div>
-
-        <p class="rsvp-intro">
-            We would love to celebrate this special
-            day with you. Leave us your name and
-            a little message.
-        </p>
-
-
-        <form id="rsvpForm">
-
-            <label>
-                YOUR NAME
-
-                <input
-                    id="guestName"
-                    type="text"
-                    placeholder="Your name"
-                    required>
-            </label>
-
-
-            <label>
-                NUMBER OF GUESTS
-
-                <select id="guestNumber" required>
-
-                    <option value="">
-                        Select
-                    </option>
-
-                    <option value="1">
-                        1 Guest
-                    </option>
-
-                    <option value="2">
-                        2 Guests
-                    </option>
-
-                    <option value="3">
-                        3 Guests
-                    </option>
-
-                    <option value="4">
-                        4 Guests
-                    </option>
-
-                    <option value="5">
-                        5 Guests
-                    </option>
-
-                </select>
-
-            </label>
-
-
-            <label>
-                A MESSAGE FOR US
-
-                <textarea
-                    id="guestMessage"
-                    rows="5"
-                    placeholder="Write something for Mina & Madonna...">
-                </textarea>
-
-            </label>
-
-
-            <button
-                type="submit"
-                class="vintage-button">
-
-                SEND WITH LOVE
-
-            </button>
-
-        </form>
-
-
-        <div
-            id="thankYou"
-            class="thank-you hidden">
-
-            <h3>
-                Thank you
-            </h3>
-
-            <p>
-                We can't wait to celebrate with you.
-            </p>
-
-            <span>
-                ♡
             </span>
 
         </div>
 
+
+        <!-- ENVELOPE -->
+
+        <div id="envelopeStage" class="envelope-stage">
+
+            <div class="envelope-shadow"></div>
+
+            <div id="envelope" class="envelope">
+
+                <div class="envelope-back"></div>
+
+                <div class="envelope-paper">
+
+                    <div class="paper-border"></div>
+
+                    <span class="paper-monogram">
+                        M & M
+                    </span>
+
+                </div>
+
+                <div class="envelope-flap"></div>
+
+                <div class="envelope-front"></div>
+
+
+                <!-- WAX SEAL -->
+
+                <button id="seal" class="wax-seal">
+
+                    <span>
+                        M
+                    </span>
+
+                </button>
+
+            </div>
+
+            <p class="tap-text">
+                TAP TO OPEN
+            </p>
+
+        </div>
+
+
+        <!-- =========================================
+             REVEAL STORY
+        ========================================== -->
+
+        <div id="reveal" class="reveal">
+
+            <!-- PHOTO -->
+
+            <div class="reveal-screen reveal-photo">
+
+                <div class="photo-wrap">
+
+                    <img
+                        src="childhood.jpg"
+                        alt="Our childhood">
+
+                    <div class="photo-overlay"></div>
+
+                </div>
+
+                <p>
+                    Before we knew...
+                </p>
+
+            </div>
+
+
+            <!-- NAMES -->
+
+            <div class="reveal-screen reveal-names">
+
+                <span class="reveal-small">
+                    TWO STORIES
+                </span>
+
+                <h2>
+                    Mina
+                    <i>&</i>
+                    Madonna
+                </h2>
+
+                <span class="reveal-line"></span>
+
+            </div>
+
+
+            <!-- DATE -->
+
+            <div class="reveal-screen reveal-date">
+
+                <span class="date-number">
+                    22
+                </span>
+
+                <span class="date-dot">
+                    ·
+                </span>
+
+                <span class="date-number">
+                    11
+                </span>
+
+                <span class="date-dot">
+                    ·
+                </span>
+
+                <span class="date-number">
+                    26
+                </span>
+
+                <small>
+                    OUR DAY
+                </small>
+
+            </div>
+
+
+            <!-- FINAL -->
+
+            <div class="reveal-screen reveal-final">
+
+                <div class="ornament">
+                    ❦
+                </div>
+
+                <p>
+                    We can't wait
+                    <br>
+                    to celebrate with you.
+                </p>
+
+                <span>
+                    With love,
+                    <br>
+                    Mina & Madonna
+                </span>
+
+            </div>
+
+        </div>
+
     </section>
 
 
-
     <!-- =========================================
-         FINAL
-    ========================================= -->
+         MAIN INVITATION
+    ========================================== -->
 
-    <section class="final section">
+    <main id="invitation" class="hidden">
 
-        <div class="final-card">
 
-            <p class="eyebrow">
-                WITH ALL OUR LOVE
-            </p>
+        <!-- HERO -->
+
+        <section class="hero section">
+
+            <div class="hero-content">
+
+                <span class="eyebrow">
+                    TOGETHER WITH THEIR FAMILIES
+                </span>
+
+                <h1>
+                    Mina
+                    <i>&</i>
+                    Madonna
+                </h1>
+
+                <div class="ornament">
+                    ❦
+                </div>
+
+                <p class="hero-date">
+                    22 · 11 · 2026
+                </p>
+
+                <p class="scroll">
+                    SCROLL TO DISCOVER
+                    <br>
+                    ↓
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             OUR STORY
+        ========================================== -->
+
+        <section class="story section">
+
+            <span class="eyebrow">
+                OUR STORY
+            </span>
 
             <h2>
-                Mina & Madonna
+                Before forever...
+            </h2>
+
+            <p class="section-intro">
+                Some stories begin with a first hello.
+                Ours began much earlier.
+            </p>
+
+
+            <div class="story-line">
+
+
+                <!-- CHILDHOOD -->
+
+                <article class="story-card">
+
+                    <div class="story-image">
+
+                        <img
+                            src="childhood.jpg"
+                            alt="Our childhood">
+
+                        <div class="image-border"></div>
+
+                    </div>
+
+                    <div class="story-text">
+
+                        <span>
+                            CHAPTER I
+                        </span>
+
+                        <h3>
+                            Once upon a time...
+                        </h3>
+
+                        <p>
+                            A long time before "us".
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- PROPOSAL -->
+
+                <article class="story-card reverse">
+
+                    <div class="story-image placeholder">
+
+                        <div>
+                            <span>
+                                CHAPTER II
+                            </span>
+
+                            <strong>
+                                OUR PROPOSAL
+                            </strong>
+
+                            <small>
+                                PHOTO COMING SOON
+                            </small>
+                        </div>
+
+                        <div class="image-border"></div>
+
+                    </div>
+
+                    <div class="story-text">
+
+                        <span>
+                            CHAPTER II
+                        </span>
+
+                        <h3>
+                            And then came the yes.
+                        </h3>
+
+                        <p>
+                            The beginning of forever.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- MEMORIES -->
+
+                <article class="story-card">
+
+                    <div class="story-image placeholder">
+
+                        <div>
+                            <span>
+                                CHAPTER III
+                            </span>
+
+                            <strong>
+                                OUR MEMORIES
+                            </strong>
+
+                            <small>
+                                PHOTO COMING SOON
+                            </small>
+                        </div>
+
+                        <div class="image-border"></div>
+
+                    </div>
+
+                    <div class="story-text">
+
+                        <span>
+                            CHAPTER III
+                        </span>
+
+                        <h3>
+                            Growing together.
+                        </h3>
+
+                        <p>
+                            One memory at a time.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- TODAY -->
+
+                <article class="story-card reverse">
+
+                    <div class="story-image placeholder">
+
+                        <div>
+                            <span>
+                                CHAPTER IV
+                            </span>
+
+                            <strong>
+                                TODAY
+                            </strong>
+
+                            <small>
+                                PHOTO COMING SOON
+                            </small>
+                        </div>
+
+                        <div class="image-border"></div>
+
+                    </div>
+
+                    <div class="story-text">
+
+                        <span>
+                            CHAPTER IV
+                        </span>
+
+                        <h3>
+                            And here we are.
+                        </h3>
+
+                        <p>
+                            Almost forever.
+                        </p>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             WEDDING DETAILS
+        ========================================== -->
+
+        <section class="details section">
+
+            <span class="eyebrow">
+                THE DAY
+            </span>
+
+            <h2>
+                Join us
             </h2>
 
             <div class="ornament">
                 ❦
             </div>
 
-            <p class="final-date">
-                22 · 11 · 2026
+
+            <div class="details-grid">
+
+                <div class="detail-box">
+
+                    <span class="detail-icon">
+                        ♡
+                    </span>
+
+                    <small>
+                        DATE
+                    </small>
+
+                    <strong>
+                        Sunday
+                        <br>
+                        22 November 2026
+                    </strong>
+
+                </div>
+
+
+                <div class="detail-box">
+
+                    <span class="detail-icon">
+                        ◷
+                    </span>
+
+                    <small>
+                        TIME
+                    </small>
+
+                    <strong>
+                        7:00 PM
+                    </strong>
+
+                </div>
+
+
+                <div class="detail-box">
+
+                    <span class="detail-icon">
+                        ⌖
+                    </span>
+
+                    <small>
+                        VENUE
+                    </small>
+
+                    <strong>
+                        St. Mark Coptic
+                        Orthodox Church
+                        <br>
+                        Cleopatra, Heliopolis
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <a
+                href="https://maps.app.goo.gl/Jndjn72K9i4ZEqaU7?g_st=ic"
+                target="_blank"
+                class="vintage-button">
+
+                VIEW LOCATION
+
+            </a>
+
+        </section>
+
+
+        <!-- =========================================
+             COUNTDOWN
+        ========================================== -->
+
+        <section class="countdown-section section">
+
+            <span class="eyebrow">
+                COUNTING DOWN TO
+            </span>
+
+            <h2>
+                Our Day
+            </h2>
+
+            <div class="ornament">
+                ❦
+            </div>
+
+
+            <div class="countdown">
+
+                <div>
+                    <strong id="days">
+                        00
+                    </strong>
+
+                    <span>
+                        DAYS
+                    </span>
+                </div>
+
+                <div>
+                    <strong id="hours">
+                        00
+                    </strong>
+
+                    <span>
+                        HOURS
+                    </span>
+                </div>
+
+                <div>
+                    <strong id="minutes">
+                        00
+                    </strong>
+
+                    <span>
+                        MINUTES
+                    </span>
+                </div>
+
+                <div>
+                    <strong id="seconds">
+                        00
+                    </strong>
+
+                    <span>
+                        SECONDS
+                    </span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             DRESS CODE
+        ========================================== -->
+
+        <section class="dress section">
+
+            <span class="eyebrow">
+                DRESS CODE
+            </span>
+
+            <h2>
+                Your Look
+            </h2>
+
+            <div class="ornament">
+                ❦
+            </div>
+
+            <p>
+                Details coming soon...
             </p>
 
-        </div>
+            <div class="dress-colors">
 
-    </section>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </div>
+
+        </section>
 
 
-</main>
+        <!-- =========================================
+             RSVP
+        ========================================== -->
+
+        <section class="rsvp section">
+
+            <span class="eyebrow">
+                RSVP
+            </span>
+
+            <h2>
+                Be our guest
+            </h2>
+
+            <div class="ornament">
+                ❦
+            </div>
+
+            <p class="rsvp-intro">
+                We would love to celebrate
+                this special day with you.
+            </p>
 
 
-<script src="script.js"></script>
+            <form id="rsvpForm">
+
+                <label>
+                    YOUR NAME
+
+                    <input
+                        id="guestName"
+                        type="text"
+                        placeholder="Your name"
+                        required>
+                </label>
+
+
+                <label>
+                    NUMBER OF GUESTS
+
+                    <select
+                        id="guestNumber"
+                        required>
+
+                        <option value="">
+                            Select
+                        </option>
+
+                        <option value="1">
+                            1 Guest
+                        </option>
+
+                        <option value="2">
+                            2 Guests
+                        </option>
+
+                        <option value="3">
+                            3 Guests
+                        </option>
+
+                        <option value="4">
+                            4 Guests
+                        </option>
+
+                        <option value="5">
+                            5 Guests
+                        </option>
+
+                    </select>
+
+                </label>
+
+
+                <label>
+                    A MESSAGE FOR US
+
+                    <textarea
+                        id="guestMessage"
+                        rows="5"
+                        placeholder="Write something for Mina & Madonna..."></textarea>
+
+                </label>
+
+
+                <button
+                    type="submit"
+                    class="vintage-button">
+
+                    SEND WITH LOVE
+
+                </button>
+
+            </form>
+
+
+            <div
+                id="thankYou"
+                class="thank-you hidden">
+
+                <h3>
+                    Thank you
+                </h3>
+
+                <p>
+                    We can't wait to celebrate with you.
+                </p>
+
+                <span>
+                    ♡
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             FINAL
+        ========================================== -->
+
+        <section class="final section">
+
+            <div class="final-frame">
+
+                <span class="eyebrow">
+                    WITH ALL OUR LOVE
+                </span>
+
+                <h2>
+                    Mina
+                    <i>&</i>
+                    Madonna
+                </h2>
+
+                <div class="ornament">
+                    ❦
+                </div>
+
+                <p>
+                    22 · 11 · 2026
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
 
 </body>
+
 </html>
