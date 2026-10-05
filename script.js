@@ -1,47 +1,27 @@
-const opening=document.getElementById("opening");
-const seal=document.getElementById("seal");
-const invitation=document.getElementById("invitation");
-const music=document.getElementById("weddingMusic");
-const musicBtn=document.getElementById("musicBtn");
-let started=false, musicPlaying=false;
-
-seal.addEventListener("click",()=>{
-  if(started)return;
-  started=true;
-  opening.classList.add("opened");
-  setTimeout(()=>{
-    opening.classList.add("finished");
-    invitation.classList.remove("hidden");
-    document.body.style.overflow="auto";
-    window.scrollTo({top:0,behavior:"smooth"});
-  },1900);
-});
-
-const weddingDate=new Date("November 22, 2026 19:00:00").getTime();
-function updateCountdown(){
-  const d= Math.max(0,weddingDate-Date.now());
-  const days=Math.floor(d/86400000);
-  const hours=Math.floor(d/3600000)%24;
-  const minutes=Math.floor(d/60000)%60;
-  const seconds=Math.floor(d/1000)%60;
-  document.getElementById("days").textContent=String(days).padStart(2,"0");
-  document.getElementById("hours").textContent=String(hours).padStart(2,"0");
-  document.getElementById("minutes").textContent=String(minutes).padStart(2,"0");
-  document.getElementById("seconds").textContent=String(seconds).padStart(2,"0");
+const scenes=[...document.querySelectorAll('.scene')];
+const dots=document.getElementById('dots');
+let i=0,opened=false;
+scenes.forEach((_,n)=>{const d=document.createElement('i');d.className='dot'+(n===0?' active':'');dots.appendChild(d)});
+const dotEls=[...dots.children];
+function show(n){
+ i=(n+scenes.length)%scenes.length;
+ scenes.forEach((s,k)=>s.classList.toggle('active',k===i));
+ dotEls.forEach((d,k)=>d.classList.toggle('active',k===i));
 }
-updateCountdown(); setInterval(updateCountdown,1000);
-
-musicBtn.addEventListener("click",()=>{
-  if(!music)return;
-  if(!musicPlaying){music.play().then(()=>{musicPlaying=true;musicBtn.textContent="❚❚"}).catch(()=>{});}
-  else{music.pause();musicPlaying=false;musicBtn.textContent="♫";}
-});
-
-const form=document.getElementById("rsvpForm");
-const thankYou=document.getElementById("thankYou");
-form.addEventListener("submit",e=>{
-  e.preventDefault();
-  form.classList.add("hidden");
-  thankYou.classList.remove("hidden");
-});
-document.body.style.overflow="hidden";
+document.getElementById('next').onclick=()=>show(i+1);
+document.getElementById('prev').onclick=()=>show(i-1);
+document.getElementById('openBtn').onclick=()=>{
+ if(!opened){opened=true;show(1);document.getElementById('openBtn').style.display='none';}
+};
+let sx=0;
+window.addEventListener('touchstart',e=>sx=e.touches[0].clientX,{passive:true});
+window.addEventListener('touchend',e=>{let dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>50)show(i+(dx<0?1:-1))},{passive:true});
+document.querySelectorAll('.scene').forEach((s,k)=>s.addEventListener('click',e=>{
+ if(k===0 && e.target.id!=='openBtn') return;
+}));
+const music=document.getElementById('music'), mb=document.getElementById('musicBtn');
+mb.onclick=async()=>{if(music.paused){try{await music.play();mb.textContent='Ⅱ'}catch(e){}}else{music.pause();mb.textContent='♫'}};
+const modal=document.getElementById('modal');
+document.getElementById('rsvpBtn').onclick=()=>{modal.classList.add('open');modal.setAttribute('aria-hidden','false')};
+document.getElementById('close').onclick=()=>{modal.classList.remove('open');modal.setAttribute('aria-hidden','true')};
+document.getElementById('send').onclick=()=>modal.querySelector('.modal-card').classList.add('sent');
