@@ -1,19 +1,14 @@
-/* =========================================
-   MINA & MADONNA
-   CINEMATIC VINTAGE WEDDING
-========================================= */
-
 :root {
-    --espresso: #2d211b;
-    --coffee: #4a3529;
-    --mocha: #705644;
-    --taupe: #9b8068;
-    --cream: #eee3d2;
-    --paper: #f5ecdf;
-    --gold: #a98a61;
-    --soft-gold: #c2a77c;
-    --white: #fbf7ef;
-    --shadow: rgba(30, 20, 14, .28);
+    --espresso: #211713;
+    --dark-brown: #30211b;
+    --brown: #543c2d;
+    --mocha: #70533f;
+    --taupe: #9a8067;
+    --cream: #eee2d0;
+    --paper: #f7eee1;
+    --gold: #b39568;
+    --light-gold: #cfb88d;
+    --white: #fffaf2;
 }
 
 * {
@@ -27,17 +22,16 @@ html {
 }
 
 body {
-    margin: 0;
     background: var(--espresso);
-    color: var(--coffee);
+    color: var(--brown);
     font-family: "Cormorant Garamond", serif;
     overflow-x: hidden;
 }
 
 button,
 input,
-textarea,
-select {
+select,
+textarea {
     font-family: inherit;
 }
 
@@ -47,7 +41,7 @@ select {
 
 
 /* =========================================
-   CINEMATIC OPENING
+   OPENING
 ========================================= */
 
 .opening {
@@ -55,28 +49,27 @@ select {
     inset: 0;
     z-index: 1000;
 
-    min-height: 100svh;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    height: 100svh;
 
     overflow: hidden;
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     background:
         radial-gradient(
-            circle at 50% 45%,
-            #66503f 0%,
-            #3e2d24 45%,
-            #211814 100%
+            circle at center,
+            #594333 0%,
+            #30221c 48%,
+            #17110e 100%
         );
 
     color: var(--paper);
 
     transition:
-        opacity 1.4s ease,
-        visibility 1.4s ease;
+        opacity 1.6s ease,
+        visibility 1.6s ease;
 }
 
 .opening.finished {
@@ -86,327 +79,496 @@ select {
 }
 
 
-/* subtle vintage light */
+/* subtle grain */
 
-.opening-glow {
+.opening-noise {
     position: absolute;
+    inset: 0;
 
-    width: 75vw;
-    height: 75vw;
+    opacity: .12;
 
-    max-width: 650px;
-    max-height: 650px;
-
-    border-radius: 50%;
-
-    background:
+    background-image:
         radial-gradient(
-            circle,
-            rgba(194,167,124,.18),
-            transparent 65%
+            rgba(255,255,255,.5) .5px,
+            transparent .5px
         );
 
-    filter: blur(8px);
+    background-size: 5px 5px;
+
+    pointer-events: none;
+}
+
+.opening-vignette {
+    position: absolute;
+    inset: 0;
+
+    box-shadow:
+        inset 0 0 150px rgba(0,0,0,.75);
 
     pointer-events: none;
 }
 
 
 /* =========================================
-   OPENING TEXT
+   INTRO TEXT
 ========================================= */
 
-.opening-title {
+.intro-text {
     position: absolute;
+    top: 8vh;
 
-    top: 7vh;
+    text-align: center;
 
-    font-size: 11px;
+    opacity: 1;
 
-    letter-spacing: 6px;
-
-    color: #dfceb5;
-
-    opacity: .85;
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
 }
 
-.opening-subtitle {
-    position: absolute;
+.intro-text.hide {
+    opacity: 0;
+    transform: translateY(-20px);
+}
 
-    top: calc(7vh + 25px);
+.intro-small {
+    display: block;
 
-    font-size: 13px;
+    font-size: 9px;
+    letter-spacing: 6px;
 
-    letter-spacing: 1px;
+    color: var(--light-gold);
+}
 
-    color: #bba58b;
+.intro-text h1 {
+    margin-top: 15px;
 
-    opacity: .7;
+    font-family: "Great Vibes", cursive;
+
+    font-size: clamp(42px, 12vw, 70px);
+
+    font-weight: 400;
+
+    line-height: .8;
+
+    color: var(--paper);
+}
+
+.intro-text h1 i {
+    display: inline-block;
+
+    margin: 0 7px;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 18px;
+
+    color: var(--gold);
+}
+
+.intro-date {
+    display: block;
+
+    margin-top: 25px;
+
+    font-size: 10px;
+
+    letter-spacing: 5px;
+
+    color: var(--light-gold);
 }
 
 
 /* =========================================
-   PHONE
+   ENVELOPE
 ========================================= */
 
-.phone {
+.envelope-stage {
     position: relative;
 
-    width: min(76vw, 340px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-    height: min(76vh, 650px);
+    margin-top: 70px;
 
-    min-height: 510px;
+    transition:
+        opacity 1s ease,
+        transform 1.2s ease;
+}
 
-    max-height: 680px;
+.envelope-stage.hide {
+    opacity: 0;
+    transform: scale(.92) translateY(-20px);
+    pointer-events: none;
+}
+
+.envelope {
+    position: relative;
+
+    width: min(76vw, 370px);
+    height: min(53vw, 260px);
+
+    min-height: 230px;
 
     cursor: pointer;
 
-    outline: none;
+    filter:
+        drop-shadow(
+            0 35px 35px rgba(0,0,0,.42)
+        );
 
-    animation:
-        phoneFloat 5s ease-in-out infinite;
+    transform-style: preserve-3d;
+
+    transition:
+        transform .8s ease;
 }
 
-@keyframes phoneFloat {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-7px);
-    }
+.envelope:hover {
+    transform: translateY(-5px);
 }
 
-
-.phone-frame {
+.envelope-shadow {
     position: absolute;
 
+    width: 85%;
+    height: 30px;
+
+    bottom: 55px;
+
+    background: rgba(0,0,0,.4);
+
+    filter: blur(20px);
+
+    border-radius: 50%;
+}
+
+
+/* back */
+
+.envelope-back {
+    position: absolute;
     inset: 0;
-
-    padding: 7px;
-
-    border-radius: 40px;
 
     background:
         linear-gradient(
             145deg,
-            #b79a70,
-            #4d382b 35%,
-            #1d1511 80%
+            #9b775a,
+            #654936
         );
 
-    box-shadow:
-        0 35px 70px rgba(0,0,0,.45),
-        inset 0 1px 2px rgba(255,255,255,.25);
+    border-radius: 3px;
+
+    border:
+        1px solid rgba(207,184,141,.45);
 }
 
 
-.phone-screen {
-    position: relative;
+/* letter */
 
-    width: 100%;
-    height: 100%;
-
-    overflow: hidden;
-
-    border-radius: 34px;
-
-    background: var(--paper);
-
-    box-shadow:
-        inset 0 0 30px rgba(50,35,20,.15);
-}
-
-
-/* small phone speaker */
-
-.phone-screen::before {
-    content: "";
-
+.envelope-paper {
     position: absolute;
 
-    z-index: 100;
+    left: 10%;
+    right: 10%;
 
-    top: 10px;
-    left: 50%;
+    top: 10%;
 
-    width: 70px;
-    height: 5px;
+    height: 83%;
 
-    transform: translateX(-50%);
+    background:
+        linear-gradient(
+            135deg,
+            #f7eee1,
+            #dfcfb9
+        );
 
-    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    background: rgba(35,25,18,.6);
+    box-shadow:
+        0 5px 20px rgba(0,0,0,.12);
+
+    transition:
+        transform 1.2s cubic-bezier(.2,.8,.2,1),
+        opacity 1s ease;
+}
+
+.envelope.opened .envelope-paper {
+    transform:
+        translateY(-135px)
+        rotate(-1deg);
+
+    z-index: 5;
+}
+
+.paper-border {
+    position: absolute;
+    inset: 10px;
+
+    border:
+        1px solid rgba(169,138,97,.6);
+}
+
+.paper-monogram {
+    font-family: "Great Vibes", cursive;
+
+    font-size: 45px;
+
+    color: var(--brown);
 }
 
 
-/* =========================================
-   REVEAL SCREENS
-========================================= */
+/* front */
 
-.reveal-screen {
+.envelope-front {
     position: absolute;
 
     inset: 0;
 
-    display: flex;
+    z-index: 7;
 
-    flex-direction: column;
+    clip-path:
+        polygon(
+            0 0,
+            50% 55%,
+            100% 0,
+            100% 100%,
+            0 100%
+        );
+
+    background:
+        linear-gradient(
+            145deg,
+            #77563f,
+            #4d3729
+        );
+
+    border-radius: 3px;
+}
+
+
+/* flap */
+
+.envelope-flap {
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 72%;
+
+    z-index: 8;
+
+    transform-origin: top;
+
+    clip-path:
+        polygon(
+            0 0,
+            100% 0,
+            50% 100%
+        );
+
+    background:
+        linear-gradient(
+            145deg,
+            #a07b5b,
+            #654835
+        );
+
+    transition:
+        transform 1s cubic-bezier(.2,.8,.2,1);
+}
+
+.envelope.opened .envelope-flap {
+    transform: rotateX(180deg);
+
+    z-index: 3;
+}
+
+
+/* =========================================
+   WAX SEAL
+========================================= */
+
+.wax-seal {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    z-index: 20;
+
+    width: 76px;
+    height: 76px;
+
+    transform:
+        translate(-50%, -50%);
+
+    border: none;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #8e6049,
+            #593629 65%,
+            #3e261d
+        );
+
+    color: #ead8bd;
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,.3),
+        inset 0 2px 5px rgba(255,255,255,.15);
+
+    font-family: "Great Vibes", cursive;
+
+    font-size: 38px;
+
+    transition:
+        transform .8s ease,
+        opacity .6s ease;
+}
+
+.wax-seal:hover {
+    transform:
+        translate(-50%, -50%)
+        scale(1.06);
+}
+
+.envelope.opened .wax-seal {
+    opacity: 0;
+    transform:
+        translate(-50%, -50%)
+        scale(1.5);
+}
+
+
+/* =========================================
+   TAP
+========================================= */
+
+.tap-text {
+    margin-top: 35px;
+
+    font-size: 8px;
+
+    letter-spacing: 5px;
+
+    color: #bda486;
+
+    animation:
+        tapPulse 2s ease-in-out infinite;
+}
+
+@keyframes tapPulse {
+
+    0%,
+    100% {
+        opacity: .45;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+
+/* =========================================
+   REVEAL
+========================================= */
+
+.reveal {
+    position: absolute;
+    inset: 0;
+
+    z-index: 50;
+
+    display: none;
 
     align-items: center;
     justify-content: center;
 
-    opacity: 0;
-
-    visibility: hidden;
-
-    transform: scale(1.04);
-
-    transition:
-        opacity 1s ease,
-        transform 1.2s ease,
-        visibility 1s ease;
+    background: var(--espresso);
 }
 
-.reveal-screen.active {
-    opacity: 1;
+.reveal.active {
+    display: flex;
+}
 
+.reveal-screen {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: column;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform:
+        scale(1.05);
+
+    transition:
+        opacity 1.4s ease,
+        transform 1.5s ease,
+        visibility 1.4s ease;
+}
+
+.reveal-screen.show {
+    opacity: 1;
     visibility: visible;
 
     transform: scale(1);
 }
 
 
-/* =========================================
-   SCREEN 1 — SEAL
-========================================= */
+/* photo */
 
-#screenSeal {
-    background:
-        radial-gradient(
-            circle at center,
-            #f7eee1,
-            #ded0bc
-        );
+.reveal-photo {
+    background: #201713;
 }
 
-.paper-texture {
-    position: absolute;
-
-    inset: 0;
-
-    opacity: .18;
-
-    background-image:
-        radial-gradient(
-            rgba(70,50,35,.4) .5px,
-            transparent .5px
-        );
-
-    background-size: 6px 6px;
-
-    pointer-events: none;
-}
-
-.seal-wrap {
+.photo-wrap {
     position: relative;
 
-    display: flex;
+    width: min(78vw, 390px);
+    height: min(75vh, 560px);
 
-    align-items: center;
-    justify-content: center;
-}
-
-.seal {
-    width: 105px;
-    height: 105px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 50%;
-
-    color: #eee0c9;
-
-    font-family: "Great Vibes", cursive;
-
-    font-size: 54px;
-
-    background:
-        radial-gradient(
-            circle at 35% 28%,
-            #a38a69,
-            #584232 75%
-        );
+    overflow: hidden;
 
     border:
-        3px solid rgba(255,248,234,.4);
+        1px solid rgba(195,166,119,.55);
 
     box-shadow:
-        0 12px 25px rgba(60,40,25,.28),
-        inset 0 2px 4px rgba(255,255,255,.18);
-
-    animation:
-        sealPulse 2.7s ease-in-out infinite;
+        0 25px 70px rgba(0,0,0,.5);
 }
 
-@keyframes sealPulse {
-
-    0%,
-    100% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.045);
-    }
-}
-
-.tap {
-    margin-top: 45px;
-
-    font-size: 9px;
-
-    letter-spacing: 4px;
-
-    color: var(--coffee);
-
-    opacity: .7;
-}
-
-
-/* =========================================
-   SCREEN 2 — CHILDHOOD PHOTO
-========================================= */
-
-#screenPhoto {
-    background: #1f1713;
-}
-
-#screenPhoto img {
+.photo-wrap img {
     width: 100%;
     height: 100%;
 
     object-fit: cover;
 
     filter:
-        sepia(.18)
-        saturate(.8)
-        contrast(.96);
-
-    transform: scale(1.02);
+        sepia(.2)
+        saturate(.75)
+        contrast(.95);
 
     animation:
-        photoReveal 5s ease forwards;
+        photoZoom 7s ease forwards;
 }
 
-@keyframes photoReveal {
+@keyframes photoZoom {
 
     from {
         transform: scale(1.08);
@@ -419,231 +581,162 @@ select {
 
 .photo-overlay {
     position: absolute;
-
     inset: 0;
 
     background:
         linear-gradient(
             to top,
-            rgba(30,20,14,.75),
-            transparent 50%
+            rgba(20,12,9,.7),
+            transparent 55%
         );
 }
 
-.photo-caption {
-    position: absolute;
+.reveal-photo p {
+    margin-top: 22px;
 
-    bottom: 45px;
+    font-family: "Italianno", cursive;
 
-    color: #f6ead8;
+    font-size: 35px;
 
-    font-family: "Great Vibes", cursive;
-
-    font-size: 31px;
-
-    text-shadow:
-        0 2px 10px rgba(0,0,0,.35);
+    color: var(--paper);
 }
 
 
-/* =========================================
-   SCREEN 3 — DATE
-========================================= */
+/* names */
 
-#screenDate {
+.reveal-names {
     background:
         radial-gradient(
             circle,
-            #f7eee1,
-            #d8c7b0
+            #654a38,
+            #211713 70%
         );
 }
 
-.date-reveal {
-    display: flex;
+.reveal-small {
+    font-size: 8px;
 
-    align-items: center;
+    letter-spacing: 6px;
 
-    gap: 10px;
-
-    color: var(--coffee);
-
-    font-size: 43px;
-
-    font-weight: 500;
-
-    letter-spacing: 3px;
+    color: var(--light-gold);
 }
 
-.date-reveal i {
-    font-style: normal;
+.reveal-names h2 {
+    margin-top: 25px;
 
-    color: var(--gold);
-
-    font-size: 20px;
-}
-
-#screenDate p {
-    margin-top: 22px;
-
-    font-size: 9px;
-
-    letter-spacing: 5px;
-
-    color: var(--gold);
-}
-
-
-/* =========================================
-   SCREEN 4 — MONOGRAM
-========================================= */
-
-#screenMonogram {
-    background:
-        #eee3d2;
-}
-
-.ornate-frame {
-    width: 210px;
-    height: 270px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    border:
-        1px solid rgba(169,138,97,.7);
-
-    position: relative;
-}
-
-.ornate-frame::before,
-.ornate-frame::after {
-    content: "❦";
-
-    position: absolute;
-
-    color: var(--gold);
-
-    font-size: 23px;
-}
-
-.ornate-frame::before {
-    top: -15px;
-}
-
-.ornate-frame::after {
-    bottom: -15px;
-}
-
-.monogram {
     font-family: "Great Vibes", cursive;
 
-    font-size: 70px;
+    font-size: clamp(70px, 19vw, 120px);
 
-    color: var(--coffee);
+    font-weight: 400;
 
     line-height: .75;
+
+    color: var(--paper);
+
+    text-align: center;
 }
 
-.monogram small {
+.reveal-names h2 i {
     display: block;
+
+    margin: 25px 0;
 
     font-family: "Cormorant Garamond", serif;
 
-    font-size: 17px;
+    font-size: 22px;
 
-    letter-spacing: 3px;
+    color: var(--gold);
+}
+
+.reveal-line {
+    width: 70px;
+    height: 1px;
+
+    margin-top: 35px;
+
+    background: var(--gold);
+}
+
+
+/* date */
+
+.reveal-date {
+    background: var(--paper);
+
+    color: var(--brown);
+
+    flex-direction: row;
+
+    gap: 8px;
+}
+
+.date-number {
+    font-size: clamp(55px, 15vw, 90px);
+
+    font-weight: 400;
+}
+
+.date-dot {
+    color: var(--gold);
+
+    font-size: 30px;
+}
+
+.reveal-date small {
+    position: absolute;
+
+    margin-top: 180px;
+
+    font-size: 9px;
+
+    letter-spacing: 6px;
 
     color: var(--gold);
 }
 
 
-/* =========================================
-   SCREEN 5 — FINAL REVEAL
-========================================= */
+/* final */
 
-#screenFinal {
+.reveal-final {
     background:
         linear-gradient(
             145deg,
-            #f5ecdf,
-            #ded0bc
+            #f6ede0,
+            #d7c5ad
         );
-}
-
-.final-reveal {
-    width: 80%;
 
     text-align: center;
 
-    color: var(--coffee);
+    color: var(--brown);
 }
 
-.mini-seal {
-    width: 45px;
-    height: 45px;
-
-    margin: 0 auto 25px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 50%;
-
-    background: #624936;
-
-    color: #f5ecdf;
-
-    font-family: "Great Vibes", cursive;
-
-    font-size: 22px;
-}
-
-.mini-ornament {
+.reveal-final .ornament {
     color: var(--gold);
 
-    font-size: 25px;
+    font-size: 32px;
 
-    margin-bottom: 18px;
+    margin-bottom: 20px;
 }
 
-.final-reveal p {
-    font-size: 18px;
+.reveal-final p {
+    font-family: "Italianno", cursive;
 
-    line-height: 1.45;
+    font-size: 42px;
 
-    margin-bottom: 22px;
+    line-height: 1.05;
 }
 
-.final-reveal strong {
-    font-size: 12px;
+.reveal-final span {
+    margin-top: 30px;
 
-    letter-spacing: 4px;
+    font-size: 11px;
 
-    color: var(--gold);
-}
+    letter-spacing: 3px;
 
+    line-height: 2;
 
-/* =========================================
-   OPENING BOTTOM TEXT
-========================================= */
-
-.opening-bottom {
-    position: absolute;
-
-    bottom: 5vh;
-
-    font-size: 8px;
-
-    letter-spacing: 4px;
-
-    color: #bba58b;
-
-    opacity: .55;
+    color: var(--mocha);
 }
 
 
@@ -654,10 +747,10 @@ select {
 .music-btn {
     position: fixed;
 
-    z-index: 900;
-
     top: 20px;
     right: 20px;
+
+    z-index: 2000;
 
     width: 44px;
     height: 44px;
@@ -665,33 +758,30 @@ select {
     border-radius: 50%;
 
     border:
-        1px solid rgba(169,138,97,.7);
+        1px solid rgba(169,138,97,.6);
 
     background:
         rgba(245,236,223,.9);
 
-    color: var(--coffee);
-
-    font-size: 18px;
+    color: var(--brown);
 
     cursor: pointer;
 
-    box-shadow:
-        0 6px 20px rgba(30,20,14,.2);
+    font-size: 18px;
 }
 
 
 /* =========================================
-   MAIN INVITATION
+   MAIN
 ========================================= */
 
 .section {
     min-height: 100svh;
 
-    padding: 100px 22px;
+    padding:
+        100px 22px;
 
     display: flex;
-
     flex-direction: column;
 
     align-items: center;
@@ -703,36 +793,32 @@ select {
 }
 
 .eyebrow {
-    font-size: 10px;
+    font-size: 9px;
 
     letter-spacing: 5px;
 
     color: var(--gold);
-
-    margin-bottom: 20px;
-}
-
-h1,
-h2,
-h3 {
-    font-weight: 500;
 }
 
 h2 {
-    color: var(--espresso);
+    margin-top: 20px;
 
     font-size:
-        clamp(42px, 10vw, 70px);
+        clamp(45px, 11vw, 80px);
 
-    line-height: 1;
+    font-weight: 400;
+
+    color: var(--espresso);
+
+    line-height: .9;
 }
 
 .ornament {
     margin: 25px 0;
 
-    color: var(--gold);
-
     font-size: 28px;
+
+    color: var(--gold);
 }
 
 
@@ -741,63 +827,64 @@ h2 {
 ========================================= */
 
 .hero {
-    min-height: 100svh;
-
     background:
         radial-gradient(
             circle at center,
-            #f8f1e6,
-            #e3d4c0
+            #f8f0e5,
+            #dfcfb9
         );
 }
 
-.hero-inner {
-    max-width: 650px;
+.hero-content {
+    width: 100%;
+    max-width: 700px;
 }
 
 .hero h1 {
+    margin-top: 30px;
+
     font-family: "Great Vibes", cursive;
 
     font-size:
-        clamp(72px, 19vw, 125px);
+        clamp(85px, 22vw, 150px);
 
-    line-height: .8;
+    font-weight: 400;
+
+    line-height: .7;
 
     color: var(--espresso);
 }
 
-.hero h1 span {
+.hero h1 i {
     display: block;
 
-    margin: 22px 0;
+    margin: 25px 0;
 
     font-family: "Cormorant Garamond", serif;
 
     font-size: 25px;
 
-    font-style: italic;
-
     color: var(--gold);
 }
 
-.date {
+.hero-date {
     font-size: 15px;
 
-    letter-spacing: 7px;
+    letter-spacing: 8px;
 
     color: var(--gold);
 }
 
-.scroll-hint {
+.scroll {
     margin-top: 100px;
 
-    font-size: 9px;
-
-    line-height: 2;
+    font-size: 8px;
 
     letter-spacing: 4px;
 
-    opacity: .55;
+    line-height: 2.2;
+
+    opacity: .5;
 }
 
 
@@ -806,82 +893,82 @@ h2 {
 ========================================= */
 
 .story {
+    background: var(--cream);
+
     justify-content: flex-start;
 
-    padding-top: 110px;
-
-    background: var(--cream);
+    padding-top: 120px;
 }
 
-.story > h2 {
-    max-width: 650px;
+.section-intro {
+    max-width: 430px;
 
-    font-size:
-        clamp(40px, 10vw, 68px);
+    margin-top: 30px;
+
+    font-size: 19px;
+
+    line-height: 1.5;
+
+    opacity: .7;
 }
 
-.intro-text {
-    max-width: 450px;
-
-    margin-top: 25px;
-
-    font-size: 18px;
-
-    line-height: 1.6;
-
-    opacity: .75;
-}
-
-.story-timeline {
+.story-line {
     width: 100%;
+    max-width: 900px;
 
-    max-width: 470px;
+    margin-top: 90px;
 
     display: flex;
-
     flex-direction: column;
 
-    align-items: center;
-
-    gap: 100px;
-
-    margin-top: 75px;
+    gap: 130px;
 }
 
 .story-card {
-    width: min(90vw, 410px);
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 50px;
+
+    align-items: center;
+
+    text-align: left;
 }
 
+.story-card.reverse {
+    direction: rtl;
+}
 
-/* =========================================
-   STORY PHOTOS
-========================================= */
+.story-card.reverse .story-text {
+    direction: ltr;
+}
 
-.story-photo {
+.story-image {
     position: relative;
 
     width: 100%;
 
-    height: 470px;
+    height: 530px;
 
     padding: 12px;
 
-    background: #e9ddcc;
+    background: #e6d9c6;
 
     box-shadow:
-        0 20px 40px rgba(50,35,25,.18);
+        0 25px 45px rgba(45,30,20,.16);
 
-    transform: rotate(-1.3deg);
-
-    overflow: hidden;
+    transform:
+        rotate(-1deg);
 }
 
-.story-card:nth-child(even)
-.story-photo {
-    transform: rotate(1.3deg);
+.story-card.reverse .story-image {
+    transform:
+        rotate(1deg);
 }
 
-.story-photo img {
+.story-image img {
     width: 100%;
     height: 100%;
 
@@ -890,39 +977,69 @@ h2 {
     display: block;
 
     filter:
-        sepia(.08)
-        saturate(.9);
+        sepia(.12)
+        saturate(.85);
 }
 
-.photo-frame {
+.image-border {
     position: absolute;
 
     inset: 7px;
 
     border:
-        1px solid rgba(133,105,74,.65);
+        1px solid rgba(140,108,73,.6);
+}
 
-    pointer-events: none;
+.story-text span {
+    font-size: 8px;
+
+    letter-spacing: 4px;
+
+    color: var(--gold);
+}
+
+.story-text h3 {
+    margin-top: 18px;
+
+    font-family: "Italianno", cursive;
+
+    font-size: 48px;
+
+    line-height: 1;
+
+    font-weight: 400;
+
+    color: var(--espresso);
+}
+
+.story-text p {
+    margin-top: 12px;
+
+    font-size: 16px;
+
+    opacity: .65;
 }
 
 
-/* empty frames */
+/* placeholders */
 
-.empty-photo {
+.placeholder {
     display: flex;
 
     align-items: center;
     justify-content: center;
 
+    text-align: center;
+
     background:
         linear-gradient(
             145deg,
-            #e3d4c0,
-            #cdbba2
+            #ded0bb,
+            #c5b197
         );
 }
 
-.photo-placeholder {
+.placeholder > div:first-child {
     display: flex;
 
     flex-direction: column;
@@ -931,48 +1048,27 @@ h2 {
 
     gap: 12px;
 
-    color: var(--coffee);
+    color: var(--brown);
 
-    opacity: .62;
+    opacity: .65;
 }
 
-.photo-placeholder span {
-    font-size: 12px;
+.placeholder span {
+    font-size: 8px;
 
     letter-spacing: 4px;
 }
 
-.photo-placeholder small {
-    font-size: 11px;
+.placeholder strong {
+    font-size: 25px;
+
+    font-weight: 400;
+}
+
+.placeholder small {
+    font-size: 9px;
 
     letter-spacing: 1px;
-}
-
-
-/* =========================================
-   STORY TEXT
-========================================= */
-
-.story-caption {
-    margin-top: 28px;
-
-    font-family: "Great Vibes", cursive;
-
-    font-size: 38px;
-
-    color: var(--espresso);
-}
-
-.story-small {
-    margin-top: 7px;
-
-    font-size: 11px;
-
-    letter-spacing: 2px;
-
-    text-transform: uppercase;
-
-    opacity: .6;
 }
 
 
@@ -989,48 +1085,57 @@ h2 {
 
     max-width: 900px;
 
+    margin: 55px 0;
+
     display: grid;
 
     grid-template-columns:
         repeat(3, 1fr);
 
-    gap: 30px;
-
-    margin: 60px 0;
+    gap: 25px;
 }
 
-.detail {
-    padding: 22px;
+.detail-box {
+    padding: 35px 20px;
 
     border-top:
         1px solid var(--taupe);
 
     border-bottom:
         1px solid var(--taupe);
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
 }
 
-.detail > span {
+.detail-icon {
+    font-size: 25px;
+
     color: var(--gold);
-
-    font-size: 23px;
 }
 
-.detail h3 {
-    margin: 14px 0;
+.detail-box small {
+    margin-top: 18px;
 
-    font-size: 10px;
+    font-size: 8px;
 
     letter-spacing: 4px;
 
     color: var(--espresso);
 }
 
-.detail p {
+.detail-box strong {
+    margin-top: 14px;
+
     font-size: 17px;
 
     line-height: 1.5;
 
-    opacity: .8;
+    font-weight: 400;
+
+    color: var(--brown);
 }
 
 
@@ -1039,30 +1144,29 @@ h2 {
 ========================================= */
 
 .vintage-button {
-    display: inline-block;
-
-    padding: 14px 28px;
+    padding: 15px 30px;
 
     border:
         1px solid var(--gold);
 
     background: transparent;
 
-    color: var(--coffee);
+    color: var(--brown);
 
     text-decoration: none;
 
-    font-size: 10px;
+    font-size: 9px;
 
     letter-spacing: 3px;
 
     cursor: pointer;
 
-    transition: all .3s ease;
+    transition:
+        .3s ease;
 }
 
 .vintage-button:hover {
-    background: var(--coffee);
+    background: var(--brown);
 
     color: var(--paper);
 }
@@ -1074,25 +1178,25 @@ h2 {
 
 .countdown-section {
     background:
-        #dfcfba;
+        #d8c5ab;
 }
 
 .countdown {
     width: 100%;
 
-    max-width: 720px;
+    max-width: 800px;
+
+    margin-top: 55px;
 
     display: grid;
 
     grid-template-columns:
         repeat(4, 1fr);
 
-    gap: 12px;
-
-    margin-top: 65px;
+    gap: 10px;
 }
 
-.count-item {
+.countdown > div {
     padding: 25px 5px;
 
     border-top:
@@ -1102,22 +1206,18 @@ h2 {
         1px solid var(--gold);
 }
 
-.count-item strong {
+.countdown strong {
     display: block;
-
-    color: var(--espresso);
 
     font-size:
-        clamp(38px, 9vw, 65px);
+        clamp(40px, 9vw, 70px);
 
-    font-weight: 500;
+    font-weight: 400;
+
+    color: var(--espresso);
 }
 
-.count-item span {
-    display: block;
-
-    margin-top: 5px;
-
+.countdown span {
     font-size: 8px;
 
     letter-spacing: 2px;
@@ -1125,39 +1225,35 @@ h2 {
 
 
 /* =========================================
-   DRESS CODE
+   DRESS
 ========================================= */
 
 .dress {
-    background: #f7efe4;
+    background: #f7efe3;
 }
 
-.dress-note {
-    margin-top: 10px;
-
+.dress p {
     font-size: 18px;
 
-    opacity: .7;
+    opacity: .65;
 }
 
-.color-palette {
+.dress-colors {
     display: flex;
 
-    gap: 12px;
+    gap: 14px;
 
     margin-top: 35px;
 }
 
-.color-palette span {
-    width: 42px;
-    height: 42px;
+.dress-colors span {
+    width: 45px;
+    height: 45px;
 
     border-radius: 50%;
 
     border:
         1px solid var(--gold);
-
-    background: transparent;
 }
 
 
@@ -1181,16 +1277,15 @@ h2 {
 
     font-size: 18px;
 
-    line-height: 1.6;
+    line-height: 1.5;
 
-    opacity: .75;
+    opacity: .7;
 }
 
 #rsvpForm {
-    width: min(90vw, 450px);
+    width: min(90vw, 460px);
 
     display: flex;
-
     flex-direction: column;
 
     gap: 25px;
@@ -1198,16 +1293,15 @@ h2 {
 
 #rsvpForm label {
     display: flex;
-
     flex-direction: column;
 
     align-items: flex-start;
 
-    gap: 8px;
-
     width: 100%;
 
-    font-size: 9px;
+    gap: 8px;
+
+    font-size: 8px;
 
     letter-spacing: 3px;
 }
@@ -1229,7 +1323,7 @@ h2 {
     background:
         rgba(255,255,255,.35);
 
-    color: var(--espresso);
+    color: var(--brown);
 
     font-size: 16px;
 }
@@ -1241,22 +1335,21 @@ h2 {
 #rsvpForm input:focus,
 #rsvpForm select:focus,
 #rsvpForm textarea:focus {
-    border-bottom-color: var(--coffee);
+    border-bottom-color: var(--brown);
 }
 
-
-/* =========================================
-   THANK YOU
-========================================= */
-
 .thank-you {
-    padding: 60px 20px;
+    text-align: center;
+
+    padding: 50px 20px;
 }
 
 .thank-you h3 {
     font-family: "Great Vibes", cursive;
 
-    font-size: 60px;
+    font-size: 65px;
+
+    font-weight: 400;
 
     color: var(--espresso);
 }
@@ -1270,7 +1363,7 @@ h2 {
 .thank-you span {
     display: block;
 
-    margin-top: 25px;
+    margin-top: 20px;
 
     color: var(--gold);
 
@@ -1283,38 +1376,53 @@ h2 {
 ========================================= */
 
 .final {
-    min-height: 80vh;
+    min-height: 80svh;
 
     background:
         linear-gradient(
             145deg,
-            #cbb89d,
-            #e8dccb
+            #c6b295,
+            #e7dac8
         );
 }
 
-.final-card {
+.final-frame {
     width: 100%;
+    max-width: 700px;
 
-    max-width: 650px;
-
-    padding: 55px 30px;
+    padding: 70px 25px;
 
     border:
-        1px solid rgba(169,138,97,.55);
+        1px solid rgba(169,138,97,.6);
 }
 
 .final h2 {
+    margin-top: 25px;
+
     font-family: "Great Vibes", cursive;
 
     font-size:
-        clamp(60px, 15vw, 100px);
+        clamp(65px, 17vw, 110px);
+
+    font-weight: 400;
 
     color: var(--espresso);
 }
 
-.final-date {
-    font-size: 14px;
+.final h2 i {
+    display: block;
+
+    margin: 20px 0;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 20px;
+
+    color: var(--gold);
+}
+
+.final-frame > p {
+    font-size: 13px;
 
     letter-spacing: 6px;
 
@@ -1326,30 +1434,23 @@ h2 {
    MOBILE
 ========================================= */
 
-@media (max-width: 650px) {
+@media (max-width: 700px) {
 
-    .phone {
-        width: 78vw;
+    .story-card,
+    .story-card.reverse {
+        grid-template-columns: 1fr;
 
-        height: 70vh;
+        direction: ltr;
 
-        min-height: 500px;
-
-        max-height: 640px;
+        text-align: center;
     }
 
-    .opening-title {
-        top: 5vh;
+    .story-text {
+        margin-top: 20px;
     }
 
-    .opening-subtitle {
-        top: calc(5vh + 25px);
-    }
-
-    .opening-bottom {
-        bottom: 3vh;
-
-        font-size: 7px;
+    .story-image {
+        height: 450px;
     }
 
     .details-grid {
@@ -1360,58 +1461,45 @@ h2 {
         gap: 0;
     }
 
-    .detail {
+    .detail-box {
         padding: 28px 15px;
     }
 
     .countdown {
-        gap: 7px;
+        gap: 5px;
     }
 
-    .count-item {
-        padding: 20px 2px;
-    }
-
-    .count-item strong {
+    .countdown strong {
         font-size: 34px;
     }
 
-    .count-item span {
-        font-size: 7px;
-
+    .countdown span {
+        font-size: 6px;
         letter-spacing: 1px;
-    }
-
-    .story-photo {
-        height: 430px;
     }
 }
 
 
-/* =========================================
-   SMALL PHONES
-========================================= */
+@media (max-width: 400px) {
 
-@media (max-width: 380px) {
-
-    .phone {
+    .envelope {
         width: 82vw;
-
-        min-height: 470px;
+        height: 235px;
     }
 
-    .seal {
-        width: 90px;
-        height: 90px;
+    .wax-seal {
+        width: 68px;
+        height: 68px;
 
-        font-size: 46px;
+        font-size: 32px;
     }
 
-    .date-reveal {
-        font-size: 35px;
+    .photo-wrap {
+        width: 82vw;
+        height: 520px;
     }
 
-    .story-photo {
+    .story-image {
         height: 390px;
     }
 }
